@@ -1,6 +1,9 @@
 import React from 'react';
-import { Avatar, Grid, Paper,TextField} from '@material-ui/core';
+import { Avatar, Button, Grid, Paper,TextField} from '@material-ui/core';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+
 
 const Register = () => {
     const paperStyle={padding:20,height:'70vh',width:200,margin:'20px auto'}
@@ -16,6 +19,16 @@ const Register = () => {
             <TextField label='Email' placeholder='Enter EmailId' fullwidth requied/>
             <TextField label='Password' placeholder='Enter Password' type='password' fullwidth requied/>
             <TextField label='ConfirmPassword' placeholder='Enter ConfirmPassword' type='password' fullwidth requied/>
+            <FormControlLabel
+            control={
+              <Checkbox
+                name="checkedB"
+                color="primary"
+              />
+            }
+            label="Remember me"
+          />
+          <Button type='submit' color='primary' fullWidth variant='contained'>Sign In</Button>
             </Paper>
         </Grid>
     )
