@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import Multiple from './Multiples';
+import Register from './pages/register'
 
 function App() {
   return (
     <div className="App">
-    <Multiple />
+    <Register />
     </div>
   );
 }
