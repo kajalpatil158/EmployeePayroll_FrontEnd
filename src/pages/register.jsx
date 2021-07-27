@@ -4,6 +4,11 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
+/**
+ * @description Registration Page Is Uses For Register A User
+ * @param Material UI Data is uses
+ * @return Registration Page 
+ */
 
 const Register = () => {
     const paperStyle = { padding: 20, height: '80vh', width: 200, margin: '20px auto' }

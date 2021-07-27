@@ -4,6 +4,11 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
+/**
+ * @description Login Page Is Uses For Login A User
+ * @param Material UI Data is uses
+ * @return Login Page
+ */
 
 const Login = () => {
     const paperStyle = { padding: 20, height: '60vh', width: 200, margin: '20px auto' }
