@@ -31,6 +31,11 @@ const Register = () => {
         <label htmlFor='confirmpassword'>ConfirmPassword</label>
         <input type='text' autoComplete='off' name='confirmpassword' id='confirmpassword'/>
         </div>
+
+        
+        <div class="Submit-reset">
+        <button type="submit" class="button submitButton" id="submitButton">Submit</button>
+    </div>
         </form>
     )
 }
