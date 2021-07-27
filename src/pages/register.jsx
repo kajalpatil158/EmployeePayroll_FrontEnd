@@ -1,42 +1,17 @@
 import React from 'react';
+import { Avatar, Grid, Paper} from '@material-ui/core';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 const Register = () => {
+    const paperStyle={padding:20,height:'70vh',width:200,margin:'20px auto'}
     return (
-        <form action=''>
-        <div>
-        <h3>Registration Form</h3>
-        </div>
-
-        <div>
-        <label htmlFor='firstName'>FirstName </label>
-        <input type='text' autoComplete='off' name='firstName' id='firstName'/>
-        </div>
-
-        <div>
-        <label htmlFor='lastName'>LastName</label>
-        <input type='text' autoComplete='off' name='lastName' id='lastName'/>
-        </div>
-
-        <div>
-        <label htmlFor='email'>Email</label>
-        <input type='text' autoComplete='off' name='email' id='email'/>
-        </div>
-
-        <div>
-        <label htmlFor='password'>Password</label>
-        <input type='text' autoComplete='off' name='password' id='password'/>
-        </div>
-
-        <div>
-        <label htmlFor='confirmpassword'>ConfirmPassword</label>
-        <input type='text' autoComplete='off' name='confirmpassword' id='confirmpassword'/>
-        </div>
-
-        
-        <div class="Submit-reset">
-        <button type="submit" class="button submitButton" id="submitButton">Submit</button>
-    </div>
-        </form>
+        <Grid align='center'>
+            <Paper elevation={15} style={paperStyle}>
+            <Grid><Avatar><LockOutlinedIcon /></Avatar>
+            <h2>Register</h2>
+            </Grid>
+            </Paper>
+        </Grid>
     )
 }
 
