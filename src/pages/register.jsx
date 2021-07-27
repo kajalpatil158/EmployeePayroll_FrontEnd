@@ -1,13 +1,14 @@
 import React from 'react';
-import { Avatar, Button, Grid, Paper,TextField} from '@material-ui/core';
+import { Avatar, Button, Grid, Paper,TextField, Typography,Link} from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 
 const Register = () => {
-    const paperStyle={padding:20,height:'70vh',width:200,margin:'20px auto'}
+    const paperStyle={padding:20,height:'80vh',width:200,margin:'20px auto'}
     const avtarStyle={backgroundColor:'red'}
+    const btnStyle={margin:'8px 0'}
     return (
         <Grid align='center'>
             <Paper elevation={15} style={paperStyle}>
@@ -28,7 +29,18 @@ const Register = () => {
             }
             label="Remember me"
           />
-          <Button type='submit' color='primary' fullWidth variant='contained'>Sign In</Button>
+          <Button type='submit' color='primary' style={btnStyle} fullWidth variant='contained'>Sign In</Button>
+          <Typography>
+          <Link href="#" >
+          Forgot Password ?
+        </Link>
+          </Typography>
+
+          <Typography> Do you have an account ?
+          <Link href="#" >
+        Sign Up
+        </Link>
+          </Typography>
             </Paper>
         </Grid>
     )
