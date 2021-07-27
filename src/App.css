@@ -16,7 +16,7 @@ body {
 }
 
 form{
-  background-color:palegoldenrod;
+  background-color:wh;
   margin-left: 400px;
   margin-right: 400px;
   text-align: 50px;
@@ -29,21 +29,20 @@ form{
   align-items: center;
   border: 0px solid green;
 }
-.label {
-  min-width: 140px;
-}
 
 label {
   padding: 12px 12px 12px 12px;
+  margin-left: 30px;
   display: inline-block;
 }
 
-.text {
+text {
   font-size: 16px;
   color: black;
   opacity: 2;
   font-family: Roboto;
   text-align: justify;
+  margin-left: 550px;
 }
 
 .button {
