@@ -12,7 +12,7 @@ import * as Yup from 'yup';
  */
 
 const Register = () => {
-    const paperStyle = { padding: 20, height: '80vh', width: 200, margin: '20px auto' }
+    const paperStyle = { padding: 20, height: '90vh', width: 200, margin: '20px auto' }
     const avtarStyle = { backgroundColor: 'red' }
     const btnStyle = { margin: '8px 0' }
     const initialValues = {
@@ -23,16 +23,24 @@ const Register = () => {
         ConfirmPassword: '',
 
     }
+    const onSubmit = (values, props) => {
+        console.log(values);
+        console.log(props);
+        setTimeout(() => {
+            props.resetForm()
+            props.setSubmitting(false)
+        }, 2000)
+    }
     const validationSchema = Yup.object().shape({
         FirstName: Yup.string().min(3).required("Required"),
         LastName: Yup.string().min(2).required("Required"),
         Email: Yup.string().email("Enter Valid Email").required("Required"),
         Password: Yup.string().min(8, "Password minimum length should be 8").required("Required"),
         ConfirmPassword: Yup.string().oneOf(
-          [Yup.ref("Password")],
-          "Passwords Not Matched"
+            [Yup.ref("Password")],
+            "Passwords Not Matched"
         ).required("Required"),
-      });
+    });
     return (
         <Grid align='center'>
             <Paper elevation={15} style={paperStyle}>
@@ -40,20 +48,20 @@ const Register = () => {
                     <h2>Register</h2>
                 </Grid>
                 <Formik initialValues={initialValues}
-                validationSchema={validationSchema}
-                    >
+                    validationSchema={validationSchema}
+                    onSubmit={onSubmit} >
                     {(props) => (
                         <Form>
-                            <Field as={TextField} label='FirstName' name='FirstName' 
-                            helperText={<ErrorMessage name='FirstName' />} placeholder='Enter FirstName' fullwidth requied />
-                            <Field as={TextField} label='LastName' name='LastName' 
-                            helperText={<ErrorMessage name='LastName' />} placeholder='Enter LastName' fullwidth requied />
-                            <Field as={TextField} label='Email' name='Email' 
-                            helperText={<ErrorMessage name='Email' />} placeholder='Enter EmailId' fullwidth requied />
-                            <Field as={TextField} label='Password' name='Password' 
-                            helperText={<ErrorMessage name='Password' />} placeholder='Enter Password' type='password' fullwidth requied />
-                            <Field as={TextField} label='ConfirmPassword' name='ConfirmPassword' 
-                            helperText={<ErrorMessage name='ConfirmPassword' />} placeholder='Enter ConfirmPassword' type='password' fullwidth requied />
+                            <Field as={TextField} label='FirstName' name='FirstName'
+                                helperText={<ErrorMessage name='FirstName' />} placeholder='Enter FirstName' fullwidth requied />
+                            <Field as={TextField} label='LastName' name='LastName'
+                                helperText={<ErrorMessage name='LastName' />} placeholder='Enter LastName' fullwidth requied />
+                            <Field as={TextField} label='Email' name='Email'
+                                helperText={<ErrorMessage name='Email' />} placeholder='Enter EmailId' fullwidth requied />
+                            <Field as={TextField} label='Password' name='Password'
+                                helperText={<ErrorMessage name='Password' />} placeholder='Enter Password' type='password' fullwidth requied />
+                            <Field as={TextField} label='ConfirmPassword' name='ConfirmPassword'
+                                helperText={<ErrorMessage name='ConfirmPassword' />} placeholder='Enter ConfirmPassword' type='password' fullwidth requied />
                             <FormControlLabel
                                 control={
                                     <Field as={Checkbox}
@@ -63,7 +71,9 @@ const Register = () => {
                                 }
                                 label="Remember me"
                             />
-                            <Button type='submit' color='primary' style={btnStyle} fullWidth variant='contained'>Sign In</Button>
+                            <Button type='submit' color='primary' style={btnStyle} fullWidth
+                                variant='contained' disabled={props.isSubmitting}>
+                                {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
                             <Typography>
                                 <Link href="#" >
                                     Forgot Password ?
