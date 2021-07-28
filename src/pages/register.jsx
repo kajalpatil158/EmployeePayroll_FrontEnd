@@ -3,7 +3,7 @@ import { Avatar, Button, Grid, Paper, TextField, Typography, Link } from '@mater
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { Formik, Form } from '@material-ui/icons';
+import { Formik, Form } from 'formik';
 /**
  * @description Registration Page Is Uses For Register A User
  * @param Material UI Data is uses
@@ -20,6 +20,7 @@ import { Formik, Form } from '@material-ui/icons';
                 <Grid><Avatar style={avtarStyle}><LockOutlinedIcon /></Avatar>
                     <h2>Register</h2>
                 </Grid>
+                <Formik>
                 <TextField label='FirstName' placeholder='Enter FirstName' fullwidth requied />
                 <TextField label='LastName' placeholder='Enter LastName' fullwidth requied />
                 <TextField label='Email' placeholder='Enter EmailId' fullwidth requied />
@@ -46,6 +47,7 @@ import { Formik, Form } from '@material-ui/icons';
                         Sign Up
                     </Link>
                 </Typography>
+                </Formik>
             </Paper>
         </Grid>
     )
