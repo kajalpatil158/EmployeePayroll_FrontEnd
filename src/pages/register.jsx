@@ -13,7 +13,7 @@ import '../scss/register.scss'
  */
 
 const Register = () => {
-    const paperStyle = { padding: 20, height: '90vh', width: 200, margin: '20px auto' }
+    const paperStyle = { padding: 20, height: 'auto', width: 250, margin: '20px auto' }
     const avtarStyle = { backgroundColor: 'red' }
     const btnStyle = { margin: '8px 0' }
     const initialValues = {
