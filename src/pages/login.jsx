@@ -43,7 +43,7 @@ const Login = () => {
                     {(props) =>
                     (
                         <Form>
-                            <Field as={TextField} label='Email' name='Email' placeholder='Enter EmailId'
+                            <Field as={TextField} label='Email' name='Email' placeholder='Enter Email'
                                 helperText={<ErrorMessage name='Email' />} fullwidth requied />
                             <Field as={TextField} label='Password' name='Password' placeholder='Enter Password'
                                 helperText={<ErrorMessage name='Password' />} type='password' fullwidth requied />
