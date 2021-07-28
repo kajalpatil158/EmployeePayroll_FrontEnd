@@ -21,6 +21,11 @@ const Login = () => {
     }
     const onSubmit=(values,props)=>{
         console.log(values);
+        console.log(props);
+        setTimeout(()=>{
+            props.resetForm()
+            props.setSubmitting(false)
+        },2000)
     }
     const validationSchema = Yup.object().shape({
         Email: Yup.string().email("Enter Valid Email").required("Required"),
@@ -51,7 +56,9 @@ const Login = () => {
                     }
                     label="Remember me"
                 />
-                <Button type='submit' color='primary' style={btnStyle} fullWidth variant='contained'>Sign In</Button>
+                <Button type='submit' color='primary' style={btnStyle} fullWidth 
+                variant='contained' disabled={props.isSubmitting}>
+                {props.isSubmitting?"Loading":"Sign Up"}</Button>
                 <Typography>
                     <Link href="#" >
                         Forgot Password ?
