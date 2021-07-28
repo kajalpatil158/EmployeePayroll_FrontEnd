@@ -4,7 +4,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Formik, Form, Field, ErrorMessage } from "formik";
-
+import * as Yup from 'yup';
 /**
  * @description Login Page Is Uses For Login A User
  * @param Material UI Data is uses
@@ -22,6 +22,10 @@ const Login = () => {
     const onSubmit=(values,props)=>{
         console.log(values);
     }
+    const validationSchema = Yup.object().shape({
+        Email: Yup.string().email("Enter Valid Email").required("Required"),
+        Password: Yup.string().min(8,"Password minimum length should be 8").required("Required"),
+    })
     return (
         <Grid align='center'>
             <Paper elevation={15} style={paperStyle}>
@@ -29,12 +33,15 @@ const Login = () => {
                     <h2>Login</h2>
                 </Grid>
                 <Formik initialValues={initialValues}
+                validationSchema={validationSchema}
                 onSubmit={onSubmit}>
                 {(props) =>
                 (
                     <Form>
-                <Field as={TextField} label='Email' name='Email' placeholder='Enter EmailId' fullwidth requied />
-                <Field as={TextField} label='Password' name='Password' placeholder='Enter Password' type='password' fullwidth requied />
+                <Field as={TextField} label='Email' name='Email' placeholder='Enter EmailId' 
+                helperText={<ErrorMessage name='Email' />}  fullwidth requied />
+                <Field as={TextField} label='Password' name='Password' placeholder='Enter Password' 
+                helperText={<ErrorMessage name='Password' />} type='password' fullwidth requied />
                 <FormControlLabel
                     control={
                         <Field as={Checkbox}
