@@ -5,6 +5,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import '../scss/register.scss'
 /**
  * @description Registration Page Is Uses For Register A User
  * @param Material UI Data is uses
@@ -42,8 +43,8 @@ const Register = () => {
         ).required("Required"),
     });
     return (
-        <Grid align='center'>
-            <Paper elevation={15} style={paperStyle}>
+        <Grid align='center' className="formStyle">
+            <Paper elevation={15} style={paperStyle} className="paperStyle">
                 <Grid><Avatar style={avtarStyle}><LockOutlinedIcon /></Avatar>
                     <h2>Register</h2>
                 </Grid>
@@ -71,7 +72,7 @@ const Register = () => {
                                 }
                                 label="Remember me"
                             />
-                            <Button type='submit' color='primary' style={btnStyle} fullWidth
+                            <Button className="btnstyle" type='submit' color='primary' style={btnStyle} fullWidth
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
                             <Typography>

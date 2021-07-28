@@ -4,6 +4,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import "../scss/login.scss";
 import * as Yup from 'yup';
 /**
  * @description Login Page Is Uses For Login A User
@@ -32,8 +33,8 @@ const Login = () => {
         Password: Yup.string().min(8, "Password minimum length should be 8").required("Required"),
     })
     return (
-        <Grid align='center'>
-            <Paper elevation={15} style={paperStyle}>
+        <Grid align='center' className="formStyle">
+            <Paper elevation={15} style={paperStyle} className="paperStyle">
                 <Grid><Avatar style={avtarStyle}><LockOutlinedIcon /></Avatar>
                     <h2>Login</h2>
                 </Grid>
@@ -56,7 +57,7 @@ const Login = () => {
                                 }
                                 label="Remember me"
                             />
-                            <Button type='submit' color='primary' style={btnStyle} fullWidth
+                            <Button  className="btnstyle" type='submit' color='primary' style={btnStyle} fullWidth
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
                             <Typography>
