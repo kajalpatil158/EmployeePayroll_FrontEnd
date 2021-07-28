@@ -19,17 +19,17 @@ const Login = () => {
         Email: '',
         Password: ''
     }
-    const onSubmit=(values,props)=>{
+    const onSubmit = (values, props) => {
         console.log(values);
         console.log(props);
-        setTimeout(()=>{
+        setTimeout(() => {
             props.resetForm()
             props.setSubmitting(false)
-        },2000)
+        }, 2000)
     }
     const validationSchema = Yup.object().shape({
         Email: Yup.string().email("Enter Valid Email").required("Required"),
-        Password: Yup.string().min(8,"Password minimum length should be 8").required("Required"),
+        Password: Yup.string().min(8, "Password minimum length should be 8").required("Required"),
     })
     return (
         <Grid align='center'>
@@ -38,39 +38,39 @@ const Login = () => {
                     <h2>Login</h2>
                 </Grid>
                 <Formik initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={onSubmit}>
-                {(props) =>
-                (
-                    <Form>
-                <Field as={TextField} label='Email' name='Email' placeholder='Enter EmailId' 
-                helperText={<ErrorMessage name='Email' />}  fullwidth requied />
-                <Field as={TextField} label='Password' name='Password' placeholder='Enter Password' 
-                helperText={<ErrorMessage name='Password' />} type='password' fullwidth requied />
-                <FormControlLabel
-                    control={
-                        <Field as={Checkbox}
-                            name="checkedB"
-                            color="primary"
-                        />
-                    }
-                    label="Remember me"
-                />
-                <Button type='submit' color='primary' style={btnStyle} fullWidth 
-                variant='contained' disabled={props.isSubmitting}>
-                {props.isSubmitting?"Loading":"Sign Up"}</Button>
-                <Typography>
-                    <Link href="#" >
-                        Forgot Password ?
-                    </Link>
-                </Typography>
+                    validationSchema={validationSchema}
+                    onSubmit={onSubmit}>
+                    {(props) =>
+                    (
+                        <Form>
+                            <Field as={TextField} label='Email' name='Email' placeholder='Enter EmailId'
+                                helperText={<ErrorMessage name='Email' />} fullwidth requied />
+                            <Field as={TextField} label='Password' name='Password' placeholder='Enter Password'
+                                helperText={<ErrorMessage name='Password' />} type='password' fullwidth requied />
+                            <FormControlLabel
+                                control={
+                                    <Field as={Checkbox}
+                                        name="checkedB"
+                                        color="primary"
+                                    />
+                                }
+                                label="Remember me"
+                            />
+                            <Button type='submit' color='primary' style={btnStyle} fullWidth
+                                variant='contained' disabled={props.isSubmitting}>
+                                {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
+                            <Typography>
+                                <Link href="#" >
+                                    Forgot Password ?
+                                </Link>
+                            </Typography>
 
-                <Typography> Do you have an account ?
-                    <Link href="#" >
-                        Sign Up
-                    </Link>
-                </Typography>
-                </Form>)}
+                            <Typography> Do you have an account ?
+                                <Link href="#" >
+                                    Sign Up
+                                </Link>
+                            </Typography>
+                        </Form>)}
                 </Formik>
             </Paper>
         </Grid>
