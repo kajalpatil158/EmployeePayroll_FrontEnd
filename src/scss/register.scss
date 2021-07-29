@@ -1,17 +1,30 @@
-.btnstyle {
-  margin: 4px 0;
-}
-.header {
-  font-weight: bold;
-  color: red;
-  padding: 5;
-}
-.paperStyle {
-  height: auto;
-  width: 300px;
+
+.formStyle {
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  padding: 10px 20px;
+  background-color: #ddd7d7;
+  .paperStyle {
+    height: auto;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin: 10px 0;
+  }
+  .btnstyle {
+    margin: 3px 0;
+  }
+}
+
+.header {
+  font-weight: bold;
+  color: blue;
+  padding: 5;
 }

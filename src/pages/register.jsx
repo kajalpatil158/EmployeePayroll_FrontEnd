@@ -13,9 +13,9 @@ import '../scss/register.scss'
  */
 
 const Register = () => {
-    const paperStyle = { padding: 20, height: 'auto', width: 250, margin: '20px auto' }
+    //const paperStyle = { padding: 20, height: 'auto', width: '300', margin: '20px auto' }
     const avtarStyle = { backgroundColor: 'red' }
-    const btnStyle = { margin: '8px 0' }
+    //const btnStyle = { margin: '8px 0' }
     const initialValues = {
         FirstName: '',
         LastName: '',
@@ -44,7 +44,7 @@ const Register = () => {
     });
     return (
         <Grid align='center' className="formStyle">
-            <Paper elevation={15} style={paperStyle} className="paperStyle">
+            <Paper className="paperStyle">
                 <Grid><Avatar style={avtarStyle}><LockOutlinedIcon /></Avatar>
                     <h2>Register</h2>
                 </Grid>
@@ -53,16 +53,17 @@ const Register = () => {
                     onSubmit={onSubmit} >
                     {(props) => (
                         <Form>
-                            <Field as={TextField} label='FirstName' name='FirstName'
-                                helperText={<ErrorMessage name='FirstName' />} placeholder='Enter FirstName' fullwidth requied />
+                            <Field as={TextField} label='FirstName'  name='FirstName'
+                            helperText={ <ErrorMessage name = 'lastName'>{msg => <div style={{ color: 'red' }}>{ msg }</div>}</ErrorMessage>}
+                             placeholder='Enter FirstName' fullWidth requied />
                             <Field as={TextField} label='LastName' name='LastName'
-                                helperText={<ErrorMessage name='LastName' />} placeholder='Enter LastName' fullwidth requied />
+                                helperText={<ErrorMessage name='LastName' />} placeholder='Enter LastName' fullWidth requied />
                             <Field as={TextField} label='Email' name='Email'
-                                helperText={<ErrorMessage name='Email' />} placeholder='Enter EmailId' fullwidth requied />
+                                helperText={<ErrorMessage name='Email' />} placeholder='Enter EmailId' fullWidth requied />
                             <Field as={TextField} label='Password' name='Password'
-                                helperText={<ErrorMessage name='Password' />} placeholder='Enter Password' type='password' fullwidth requied />
+                                helperText={<ErrorMessage name='Password' />} placeholder='Enter Password' type='password' fullWidth requied />
                             <Field as={TextField} label='ConfirmPassword' name='ConfirmPassword'
-                                helperText={<ErrorMessage name='ConfirmPassword' />} placeholder='Enter ConfirmPassword' type='password' fullwidth requied />
+                                helperText={<ErrorMessage name='ConfirmPassword' />} placeholder='Enter ConfirmPassword' type='password' fullWidth requied />
                             <FormControlLabel
                                 control={
                                     <Field as={Checkbox}
@@ -72,7 +73,7 @@ const Register = () => {
                                 }
                                 label="Remember me"
                             />
-                            <Button className="btnstyle" type='submit' color='primary' style={btnStyle} fullWidth
+                            <Button className="btnstyle" type='submit' color='primary' fullWidth
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
                             <Typography>
