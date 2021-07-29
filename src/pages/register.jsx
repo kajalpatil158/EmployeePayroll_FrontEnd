@@ -3,7 +3,6 @@ import { Avatar, Button, Grid, Paper, TextField, Typography, Link } from '@mater
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
 import Checkbox from '@material-ui/core/Checkbox';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import '../scss/register.scss'

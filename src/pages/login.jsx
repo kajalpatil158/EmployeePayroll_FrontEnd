@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Avatar, Button, Grid, Paper, TextField, Typography, Link } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../scss/login.scss";
 import * as Yup from 'yup';
+import userEvent from '@testing-library/user-event';
 /**
  * @description Login Page Is Uses For Login A User
  * @param Material UI Data is uses
@@ -14,11 +15,19 @@ import * as Yup from 'yup';
  */
 
 const Login = () => {
-    const [user,setUser] = useState({
-        Email:'',Password:''
+    const [user, setUser] = useState({
+        Email: '', Password: ''
     });
+
+    let name, value;
+    const handleInputs = (e) => {
+        console.log(e);
+        name = e.target.name;
+        value = e.target.value;
+
+        setUser({ ...user, [name]:value })
+    }
     const avtarStyle = { backgroundColor: 'green' }
-    const btnStyle = { margin: '8px 0' }
     const initialValues = {
         Email: '',
         Password: ''
@@ -26,6 +35,7 @@ const Login = () => {
     const onSubmit = (values, props) => {
         console.log(values);
         console.log(props);
+        alert("Data Submitted Successfully");
         setTimeout(() => {
             props.resetForm()
             props.setSubmitting(false)
@@ -38,7 +48,7 @@ const Login = () => {
     return (
         <Grid align='center' className="formStyle">
             <Paper className="paperStyle">
-            <h1 align="center" className="header">
+                <h1 align="center" className="header">
                     Employee Payroll
                 </h1>
                 <Grid><Avatar style={avtarStyle}><AccountBoxOutlinedIcon /></Avatar>
@@ -50,12 +60,14 @@ const Login = () => {
                     {(props) =>
                     (
                         <Form>
-                            <Field as={TextField} label='Email' name='Email' placeholder='Enter Email'
-                            helperText={<ErrorMessage name='Email'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
-                                 fullwidth required />
-                            <Field as={TextField} label='Password' name='Password' placeholder='Enter Password'
-                            helperText={<ErrorMessage name='Password'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
-                                 type='password' fullwidth  required/>
+                            <Field as={TextField} label='Email' name='Email'
+                                placeholder='Enter Email'
+                                helperText={<ErrorMessage name='Email'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
+                                fullwidth  
+                                required />
+                            <Field as={TextField} label='Password' name='Password' placeholder='Enter Password'                
+                                helperText={<ErrorMessage name='Password'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}     
+                                type='password' fullwidth required />
                             <FormControlLabel
                                 control={
                                     <Field as={Checkbox}
@@ -65,7 +77,7 @@ const Login = () => {
                                 }
                                 label="Remember me"
                             />
-                            <Button  className="btnstyle" type='submit'  fullWidth
+                            <Button className="btnstyle" type='submit' fullWidth
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
                             <Typography>
