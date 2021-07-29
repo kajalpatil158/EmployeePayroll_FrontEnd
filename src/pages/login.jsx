@@ -69,7 +69,7 @@ const Login = () => {
                                 </Link>
                             </Typography>
 
-                            <Typography> Do you have an account ?
+                            <Typography> Do you have an account?
                                 <Link href="#" >
                                     Sign Up
                                 </Link>

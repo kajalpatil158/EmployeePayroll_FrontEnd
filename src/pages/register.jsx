@@ -56,16 +56,20 @@ const Register = () => {
                     {(props) => (
                         <Form>
                             <Field as={TextField} label='FirstName' name='FirstName'
-                                helperText={<ErrorMessage name='lastName'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
+                                helperText={<ErrorMessage name='FirstName'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 placeholder='Enter FirstName' fullWidth requied />
                             <Field as={TextField} label='LastName' name='LastName'
-                                helperText={<ErrorMessage name='LastName' />} placeholder='Enter LastName' fullWidth requied />
+                            helperText={<ErrorMessage name='LastName'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
+                                 placeholder='Enter LastName' fullWidth requied />
                             <Field as={TextField} label='Email' name='Email'
-                                helperText={<ErrorMessage name='Email' />} placeholder='Enter EmailId' fullWidth requied />
+                            helperText={<ErrorMessage name='Email'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
+                                 placeholder='Enter EmailId' fullWidth requied />
                             <Field as={TextField} label='Password' name='Password'
-                                helperText={<ErrorMessage name='Password' />} placeholder='Enter Password' type='password' fullWidth requied />
+                            helperText={<ErrorMessage name='Password'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
+                                 placeholder='Enter Password' type='password' fullWidth requied />
                             <Field as={TextField} label='ConfirmPassword' name='ConfirmPassword'
-                                helperText={<ErrorMessage name='ConfirmPassword' />} placeholder='Enter ConfirmPassword' type='password' fullWidth requied />
+                            helperText={<ErrorMessage name='ConfirmPassword'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>} 
+                         placeholder='Enter ConfirmPassword' type='password' fullWidth requied />
                             <FormControlLabel
                                 control={
                                     <Field as={Checkbox}
@@ -84,7 +88,7 @@ const Register = () => {
                                 </Link>
                             </Typography>
 
-                            <Typography> Do you have an account ?
+                            <Typography> Do you have an account ? 
                                 <Link href="#" >
                                     Sign Up
                                 </Link>
