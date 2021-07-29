@@ -3,6 +3,7 @@ import { Avatar, Button, Grid, Paper, TextField, Typography, Link } from '@mater
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../scss/login.scss";
 import * as Yup from 'yup';
@@ -37,7 +38,7 @@ const Login = () => {
             <h1 align="center" className="header">
                     Employee Payroll
                 </h1>
-                <Grid><Avatar style={avtarStyle}><LockOutlinedIcon /></Avatar>
+                <Grid><Avatar style={avtarStyle}><AccountBoxOutlinedIcon /></Avatar>
                     <h2>Login</h2>
                 </Grid>
                 <Formik initialValues={initialValues}
