@@ -57,19 +57,19 @@ const Register = () => {
                         <Form>
                             <Field as={TextField} label='FirstName' name='FirstName'
                                 helperText={<ErrorMessage name='FirstName'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
-                                placeholder='Enter FirstName' fullWidth requied />
+                                placeholder='Enter FirstName' fullWidth required />
                             <Field as={TextField} label='LastName' name='LastName'
                             helperText={<ErrorMessage name='LastName'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
-                                 placeholder='Enter LastName' fullWidth requied />
+                                 placeholder='Enter LastName' fullWidth required />
                             <Field as={TextField} label='Email' name='Email'
                             helperText={<ErrorMessage name='Email'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
-                                 placeholder='Enter EmailId' fullWidth requied />
+                                 placeholder='Enter EmailId' fullWidth required />
                             <Field as={TextField} label='Password' name='Password'
                             helperText={<ErrorMessage name='Password'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
-                                 placeholder='Enter Password' type='password' fullWidth requied />
+                                 placeholder='Enter Password' type='password' fullWidth required />
                             <Field as={TextField} label='ConfirmPassword' name='ConfirmPassword'
                             helperText={<ErrorMessage name='ConfirmPassword'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>} 
-                         placeholder='Enter ConfirmPassword' type='password' fullWidth requied />
+                         placeholder='Enter ConfirmPassword' type='password' fullWidth required />
                             <FormControlLabel
                                 control={
                                     <Field as={Checkbox}

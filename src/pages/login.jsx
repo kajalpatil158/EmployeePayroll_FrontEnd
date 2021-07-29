@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Avatar, Button, Grid, Paper, TextField, Typography, Link } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -14,6 +14,9 @@ import * as Yup from 'yup';
  */
 
 const Login = () => {
+    const [user,setUser] = useState({
+        Email:'',Password:''
+    });
     const avtarStyle = { backgroundColor: 'green' }
     const btnStyle = { margin: '8px 0' }
     const initialValues = {
@@ -48,9 +51,11 @@ const Login = () => {
                     (
                         <Form>
                             <Field as={TextField} label='Email' name='Email' placeholder='Enter Email'
-                                helperText={<ErrorMessage name='Email' />} fullwidth requied />
+                            helperText={<ErrorMessage name='Email'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
+                                 fullwidth required />
                             <Field as={TextField} label='Password' name='Password' placeholder='Enter Password'
-                                helperText={<ErrorMessage name='Password' />} type='password' fullwidth requied />
+                            helperText={<ErrorMessage name='Password'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
+                                 type='password' fullwidth  required/>
                             <FormControlLabel
                                 control={
                                     <Field as={Checkbox}
