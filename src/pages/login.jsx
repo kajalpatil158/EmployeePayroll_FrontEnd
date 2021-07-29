@@ -13,7 +13,6 @@ import * as Yup from 'yup';
  */
 
 const Login = () => {
-    const paperStyle = { padding: 20, height: '60vh', width: 200, margin: '20px auto' }
     const avtarStyle = { backgroundColor: 'green' }
     const btnStyle = { margin: '8px 0' }
     const initialValues = {
@@ -34,7 +33,10 @@ const Login = () => {
     })
     return (
         <Grid align='center' className="formStyle">
-            <Paper elevation={15} style={paperStyle} className="paperStyle">
+            <Paper className="paperStyle">
+            <h1 align="center" className="header">
+                    Employee Payroll
+                </h1>
                 <Grid><Avatar style={avtarStyle}><LockOutlinedIcon /></Avatar>
                     <h2>Login</h2>
                 </Grid>
@@ -57,7 +59,7 @@ const Login = () => {
                                 }
                                 label="Remember me"
                             />
-                            <Button  className="btnstyle" type='submit' color='primary' style={btnStyle} fullWidth
+                            <Button  className="btnstyle" type='submit'  fullWidth
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
                             <Typography>

@@ -13,9 +13,7 @@ import '../scss/register.scss'
  */
 
 const Register = () => {
-    //const paperStyle = { padding: 20, height: 'auto', width: '300', margin: '20px auto' }
     const avtarStyle = { backgroundColor: 'red' }
-    //const btnStyle = { margin: '8px 0' }
     const initialValues = {
         FirstName: '',
         LastName: '',
@@ -45,6 +43,9 @@ const Register = () => {
     return (
         <Grid align='center' className="formStyle">
             <Paper className="paperStyle">
+                <h1 align="center" className="header">
+                    Employee Payroll
+                </h1>
                 <Grid><Avatar style={avtarStyle}><LockOutlinedIcon /></Avatar>
                     <h2>Register</h2>
                 </Grid>
@@ -53,9 +54,9 @@ const Register = () => {
                     onSubmit={onSubmit} >
                     {(props) => (
                         <Form>
-                            <Field as={TextField} label='FirstName'  name='FirstName'
-                            helperText={ <ErrorMessage name = 'lastName'>{msg => <div style={{ color: 'red' }}>{ msg }</div>}</ErrorMessage>}
-                             placeholder='Enter FirstName' fullWidth requied />
+                            <Field as={TextField} label='FirstName' name='FirstName'
+                                helperText={<ErrorMessage name='lastName'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
+                                placeholder='Enter FirstName' fullWidth requied />
                             <Field as={TextField} label='LastName' name='LastName'
                                 helperText={<ErrorMessage name='LastName' />} placeholder='Enter LastName' fullWidth requied />
                             <Field as={TextField} label='Email' name='Email'

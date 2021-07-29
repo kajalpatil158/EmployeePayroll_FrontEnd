@@ -1,11 +1,17 @@
 
+
 .formStyle {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ddd7d7;
+  background-color: #ece1e1;
+  
+.header {
+  font-weight: bold;
+  padding: 5;
+}
   .paperStyle {
     height: auto;
     width: 300px;
@@ -19,12 +25,6 @@
     margin: 10px 0;
   }
   .btnstyle {
-    margin: 3px 0;
+    margin: 4px 0;
   }
-}
-
-.header {
-  font-weight: bold;
-  color: blue;
-  padding: 5;
 }
