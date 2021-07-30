@@ -6,13 +6,9 @@ function App() {
   return (
     <div className="wrapper">
       <BrowserRouter>
-        <Switch>
-          <Route path="/Register">
-            <Register />
-          </Route>
-          <Route path="/Login">
-            <Login />
-          </Route>
+        <Switch>       
+          <Route exact path='/' component={Register} />
+          <Route path='/Login' component={Login} />
         </Switch>
       </BrowserRouter>
     </div>

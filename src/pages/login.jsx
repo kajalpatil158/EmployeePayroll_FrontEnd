@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Avatar, Button, Grid, Paper, TextField, Typography, Link } from '@material-ui/core';
+import {Link} from 'react-router-dom';
+import { Avatar, Button, Grid, Paper, TextField, Typography } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
@@ -87,9 +88,7 @@ const Login = () => {
                             </Typography>
 
                             <Typography> Do you have an account?
-                                <Link href="#" >
-                                    Sign Up
-                                </Link>
+                            <Link to={'/Register'} >sign up</Link>   
                             </Typography>
                         </Form>)}
                 </Formik>
