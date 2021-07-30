@@ -31,7 +31,7 @@ const Register = () => {
         setTimeout(() => {
             props.resetForm()
             props.setSubmitting(false)
-        }, 2000)
+        }, 1000)
     }
     const validationSchema = Yup.object().shape({
         FirstName: Yup.string().matches(/^[A-Za-z ]*$/,'Please Enter Valid Name').min(3).required("Required"),
