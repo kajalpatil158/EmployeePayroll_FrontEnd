@@ -18,13 +18,11 @@ const Login = () => {
    /* const [user, setUser] = useState({
         Email: '', Password: ''
     });
-
     let name, value;
     const handleInputs = (e) => {
         console.log(e);
         name = e.target.name;
         value = e.target.value;
-
         setUser({ ...user, [name]:value })
     }*/
     const avtarStyle = { backgroundColor: 'green' }
@@ -88,7 +86,7 @@ const Login = () => {
                             </Typography>
 
                             <Typography> Do you have an account?
-                            <Link to={'/Register'} >sign up</Link>   
+                            <Link to={'/'} >sign up</Link>   
                             </Typography>
                         </Form>)}
                 </Formik>

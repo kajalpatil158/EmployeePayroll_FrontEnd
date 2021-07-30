@@ -1,9 +1,10 @@
 import React from 'react';
-import { Avatar, Button, Grid, Paper, TextField, Typography, Link }
+import { Avatar, Button, Grid, Paper, TextField, Typography }
  from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import AccountBoxOutlinedIcon from 
 '@material-ui/icons/AccountBoxOutlined';
+import {Link} from 'react-router-dom';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -96,9 +97,7 @@ const Register = () => {
                             </Typography>
 
                             <Typography> Do you have an account ?
-                                <Link href="#" >
-                                    Sign Up
-                                </Link>
+                            <Link to={'/Login'} >sign up</Link>
                             </Typography>
                         </Form>)}
                 </Formik>
