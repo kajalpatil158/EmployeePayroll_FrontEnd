@@ -7,7 +7,6 @@ import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../scss/login.scss";
 import * as Yup from 'yup';
-import userEvent from '@testing-library/user-event';
 /**
  * @description Login Page Is Uses For Login A User
  * @param Material UI Data is uses
@@ -15,7 +14,7 @@ import userEvent from '@testing-library/user-event';
  */
 
 const Login = () => {
-    const [user, setUser] = useState({
+   /* const [user, setUser] = useState({
         Email: '', Password: ''
     });
 
@@ -26,7 +25,7 @@ const Login = () => {
         value = e.target.value;
 
         setUser({ ...user, [name]:value })
-    }
+    }*/
     const avtarStyle = { backgroundColor: 'green' }
     const initialValues = {
         Email: '',
@@ -48,9 +47,9 @@ const Login = () => {
     return (
         <Grid align='center' className="formStyle">
             <Paper className="paperStyle">
-                <h1 align="center" className="header">
-                    Employee Payroll
-                </h1>
+                <h2 align="center" className="header">
+                    Employee Payroll App
+                </h2>
                 <Grid><Avatar style={avtarStyle}><AccountBoxOutlinedIcon /></Avatar>
                     <h2>Login</h2>
                 </Grid>
@@ -78,6 +77,7 @@ const Login = () => {
                                 label="Remember me"
                             />
                             <Button className="btnstyle" type='submit' fullWidth
+                                value='Rgister' 
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
                             <Typography>
