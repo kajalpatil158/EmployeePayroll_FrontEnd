@@ -8,7 +8,8 @@ import {Link} from 'react-router-dom';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import '../scss/register.scss'
+import '../scss/register.scss';
+import service from '../services/user.js';
 /**
  * @description Registration Page Is Uses For Register A User
  * @param Material UI Data is uses
@@ -26,14 +27,32 @@ const Register = () => {
 
     }
     const onSubmit = (values, props) => {
-        console.log(values);
-        console.log(props);
-        alert("Data Added Successfully");
+        if (values) {
+            const userDetails = {
+              FirstName: values.firstName,
+              LastName: values.lastName,
+              Email: values.emailId,
+              Password: values.password,
+              ConfirmPassword: values.ConfirmPassword,
+            };
+        service.register(userDetails)
+        .then((res) => {
+          if (res.data.success === true) {
+            alert("Data Is Added");
+          } else {
+            alert("Something Wrong");
+          }
+        })
+        .catch((error) => {
+            console.log(error);
+          });
         setTimeout(() => {
             props.resetForm()
             props.setSubmitting(false)
-        }, 1000)
+        }, 2000)
     }
+ }
+ 
     const validationSchema = Yup.object().shape({
         FirstName: Yup.string().matches(/^[A-Za-z ]*$/,'Please Enter Valid Name').min(3).required("Required"),
         LastName: Yup.string().min(2).required("Required"),
