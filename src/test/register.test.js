@@ -54,4 +54,20 @@ describe("Register Page Elements availabity test", () => {
         expect(confirmPassword).toHaveTextContent("ConfirmPassword");
         
       });
+
+      it("givenTestIdElement_WhenLoginPageRendered_ShouldNotContainExpectedElementValue", () => {
+        const { getByTestId } = render(<Register />);
+        const firstName = getByTestId("firstName");
+        const lastName = getByTestId("lastName");
+        const email = getByTestId("email");
+        const password = getByTestId("password");
+        const confirmPassword = getByTestId("confirmPassword");
+    
+        expect(firstName).not.toHaveTextContent("firstName");
+        expect(lastName).not.toHaveTextContent("lastName");
+        expect(email).not.toHaveTextContent("email");
+        expect(password).not.toHaveTextContent("password");
+        expect(confirmPassword).not.toBeCheckedtoHaveTextContent("confirmPassword");
+        
+      });
 })  
