@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Avatar, Button, Grid, Paper, TextField, Typography } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -15,17 +15,7 @@ const service = new Service();
  * @return Login Page
  */
 
-const Login = () => {
-    /* const [user, setUser] = useState({
-         Email: '', Password: ''
-     });
-     let name, value;
-     const handleInputs = (e) => {
-         console.log(e);
-         name = e.target.name;
-         value = e.target.value;
-         setUser({ ...user, [name]:value })
-     }*/
+export const Login = () => {
     const avtarStyle = { backgroundColor: 'green' }
     const initialValues = {
         email: '',
@@ -34,7 +24,6 @@ const Login = () => {
 
     const onSubmit = (values, props) => {
         console.log(values);
-     //   if (values) {
             const userDetails = {
                 emailId: values.email,
                 password: values.password,          
@@ -53,11 +42,6 @@ const Login = () => {
                     alert(error.message);
                     console.log(error);
                 });
-            /* setTimeout(() => {
-                 props.resetForm()
-                 props.setSubmitting(false)
-             }, 2000)*/
-       // }
     }
 
     const validationSchema = Yup.object().shape({
@@ -67,7 +51,7 @@ const Login = () => {
     return (
         <Grid align='center' className="formStyle">
             <Paper className="paperStyle">
-                <h2 align="center" className="header">
+                <h2 data-testid="h2">
                     Employee Payroll App
                 </h2>
                 <Grid><Avatar style={avtarStyle}><AccountBoxOutlinedIcon /></Avatar>
@@ -101,13 +85,11 @@ const Login = () => {
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
                             <Typography>
-                                <Link href="#" >
-                                    Forgot Password ?
-                                </Link>
+                                
                             </Typography>
 
                             <Typography> Do you have an account?
-                                <Link to={'/'} >Sign In</Link>
+                                
                             </Typography>
                         </Form>)}
                 </Formik>

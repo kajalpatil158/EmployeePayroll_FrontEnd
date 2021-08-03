@@ -19,21 +19,20 @@ import service from '../services/user.js';
 const Register = () => {
     const avtarStyle = { backgroundColor: 'red' }
     const initialValues = {
-        FirstName: '',
-        LastName: '',
-        Email: '',
-        Password: '',
-        ConfirmPassword: '',
+        firstName: '',
+        lastName: '',
+        emailId: '',
+        password: '',
+        confirmPassword: '',
 
     }
     const onSubmit = (values, props) => {
-        if (values) {
             const userDetails = {
-              FirstName: values.firstName,
-              LastName: values.lastName,
-              Email: values.emailId,
-              Password: values.password,
-              ConfirmPassword: values.ConfirmPassword,
+            firstName: values.firstName,
+              lastName: values.lastName,
+              emailId: values.emailId,
+              password: values.password,
+              confirmPassword: values.ConfirmPassword,
             };
         service.register(userDetails)
         .then((res) => {
@@ -46,19 +45,15 @@ const Register = () => {
         .catch((error) => {
             console.log(error);
           });
-        setTimeout(() => {
-            props.resetForm()
-            props.setSubmitting(false)
-        }, 2000)
-    }
+      
  }
  
     const validationSchema = Yup.object().shape({
-        FirstName: Yup.string().matches(/^[A-Za-z ]*$/,'Please Enter Valid Name').min(3).required("Required"),
-        LastName: Yup.string().min(2).required("Required"),
-        Email: Yup.string().email("Enter Valid Email").required("Required"),
-        Password: Yup.string().min(8, "Password minimum length should be 8").required("Required"),
-        ConfirmPassword: Yup.string().oneOf(
+        firstName: Yup.string().matches(/^[A-Za-z ]*$/,'Please Enter Valid Name').min(3).required("Required"),
+        lastName: Yup.string().min(2).required("Required"),
+        emailId: Yup.string().email("Enter Valid Email").required("Required"),
+        password: Yup.string().min(8, "Password minimum length should be 8").required("Required"),
+        confirmPassword: Yup.string().oneOf(
             [Yup.ref("Password")],
             "Passwords Not Matched"
         ).required("Required"),
@@ -66,7 +61,7 @@ const Register = () => {
     return (
         <Grid align='center' className="formStyle">
             <Paper className="paperStyle">
-                <h2 align="center" className="header">
+                <h2>
                     Employee Payroll App
                 </h2>
                 <Grid><Avatar style={avtarStyle}><AccountBoxOutlinedIcon /></Avatar>
@@ -77,24 +72,24 @@ const Register = () => {
                     onSubmit={onSubmit} >
                     {(props) => (
                         <Form>
-                            <Field as={TextField} label='FirstName' name='FirstName'
-                                helperText={<ErrorMessage name='FirstName'>{msg =>
+                            <Field as={TextField} label='FirstName' name='firstName'
+                                helperText={<ErrorMessage name='firstName'>{msg =>
                                     <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 placeholder='Enter FirstName' fullWidth required />
-                            <Field as={TextField} label='LastName' name='LastName'
-                                helperText={<ErrorMessage name='LastName'>{msg =>
+                            <Field as={TextField} label='LastName' name='lastName'
+                                helperText={<ErrorMessage name='lastName'>{msg =>
                                     <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 placeholder='Enter LastName' fullWidth required />
-                            <Field as={TextField} label='Email' name='Email'
-                                helperText={<ErrorMessage name='Email'>{msg =>
+                            <Field as={TextField} label='Email' name='emailId'
+                                helperText={<ErrorMessage name='emailId'>{msg =>
                                     <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 placeholder='Enter EmailId' fullWidth required />
-                            <Field as={TextField} label='Password' name='Password'
+                            <Field as={TextField} label='Password' name='password'
                                 helperText={<ErrorMessage name='Password'>{msg =>
                                     <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 placeholder='Enter Password' type='password' fullWidth required />
-                            <Field as={TextField} label='ConfirmPassword' name='ConfirmPassword'
-                                helperText={<ErrorMessage name='ConfirmPassword'>{msg =>
+                            <Field as={TextField} label='ConfirmPassword' name='confirmPassword'
+                                helperText={<ErrorMessage name='confirmPassword'>{msg =>
                                     <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 placeholder='Enter ConfirmPassword' type='password' fullWidth required />
                             <FormControlLabel
@@ -116,7 +111,7 @@ const Register = () => {
                             </Typography>
 
                             <Typography> Do you have an account ?
-                            <Link to={'/Login'} >sign up</Link>
+                            <Link to={'/Login'} >Sign In</Link>
                             </Typography>
                         </Form>)}
                 </Formik>

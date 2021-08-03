@@ -9,9 +9,7 @@ export default class Service{
     }
 
     register = (registerData) => {
-        return Axios.post('/register', registerData)
+        return Axios.post('http://localhost:7000/register', registerData)
     }
 }
 
-
-//export default new Service();
