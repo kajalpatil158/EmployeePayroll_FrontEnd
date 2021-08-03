@@ -43,5 +43,15 @@ describe('Login Form test', () => {
         expect(password).toHaveTextContent("Password");
         
       });
-    
+    });
+      describe('Negative Login Form test', () => {
+      it("givenTestIdElement_WhenLoginPageRendered_ShouldNotContainExpectedValuesInLoginPage", () => {
+        const { getByTestId } = render(<Login />);
+        const email = getByTestId("Email");
+        const password = getByTestId("password");
+        
+        expect(email).not.toHaveTextContent("email");
+        expect(password).not.toHaveTextContent("password");
+        
+      });
 })
