@@ -54,7 +54,7 @@ export const Login = () => {
                 <h2 data-testid="h2">
                     Employee Payroll App
                 </h2>
-                <Grid><Avatar style={avtarStyle}><AccountBoxOutlinedIcon /></Avatar>
+                <Grid><Avatar data-testid="avatar" style={avtarStyle}><AccountBoxOutlinedIcon /></Avatar>
                     <h2>Login</h2>
                 </Grid>
                 <Formik initialValues={initialValues}
@@ -62,13 +62,13 @@ export const Login = () => {
                     onSubmit={onSubmit}>
                     {(props) =>
                     (
-                        <Form>
-                            <Field as={TextField} label='Email' name='email' 
+                        <Form data-testid="Form">
+                            <Field as={TextField} data-testid="Email" label='Email' name='email' 
                                 placeholder='Enter Email'
                                 helperText={<ErrorMessage name='email'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 fullwidth
                                 required />
-                            <Field as={TextField} label='Password'  name='password' placeholder='Enter Password'
+                            <Field as={TextField} data-testid="password" label='Password'  name='password' placeholder='Enter Password'
                                 helperText={<ErrorMessage name='password'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 type='password' fullwidth required />
                             <FormControlLabel
@@ -80,7 +80,7 @@ export const Login = () => {
                                 }
                                 label="Remember me"
                             />
-                            <Button className="btnstyle" type='submit' fullWidth
+                            <Button data-testid="button" className="btnstyle" type='submit' fullWidth
                                 value='Rgister' 
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>

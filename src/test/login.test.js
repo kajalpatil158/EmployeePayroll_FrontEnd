@@ -19,4 +19,20 @@ describe('Negative Test Login component', () => {
         expect(title).not.toHaveTextContent("Employee App");
     })
 })
+describe('Login Form test', () => {
 
+    it('check if form login displays', () => {
+      const { getByTestId } = render(<Login />);
+      const logo = getByTestId('avatar');
+      const form = getByTestId('Form');
+      const email = getByTestId('Email');
+      const password = getByTestId('password');
+      const button = getByTestId('button');
+  
+      expect(logo).toBeInTheDocument();
+      expect(form).toBeInTheDocument();
+      expect(button).toBeInTheDocument();
+      expect(email).toBeInTheDocument();
+      expect(password).toBeInTheDocument();
+    })
+})
