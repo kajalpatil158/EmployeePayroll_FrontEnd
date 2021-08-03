@@ -81,7 +81,7 @@ export const Login = () => {
                                 label="Remember me"
                             />
                             <Button data-testid="button" className="btnstyle" type='submit' fullWidth
-                                value='Rgister' label='button'
+                                value='Rgister' label='Button'
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
                             <Typography>
