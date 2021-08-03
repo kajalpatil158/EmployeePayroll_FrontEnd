@@ -64,31 +64,31 @@ export const Register = () => {
                 <h2 data-testid="h2">
                     Employee Payroll App
                 </h2>
-                <Grid><Avatar style={avtarStyle}><AccountBoxOutlinedIcon /></Avatar>
+                <Grid><Avatar data-testid="avatar" style={avtarStyle}><AccountBoxOutlinedIcon /></Avatar>
                     <h2>Register</h2>
                 </Grid>
                 <Formik initialValues={initialValues}
                     validationSchema={validationSchema}
                     onSubmit={onSubmit} >
                     {(props) => (
-                        <Form>
-                            <Field as={TextField} label='FirstName' name='firstName'
+                        <Form data-testid="Form">
+                            <Field as={TextField} data-testid="firstName" label='FirstName' name='firstName'
                                 helperText={<ErrorMessage name='firstName'>{msg =>
                                     <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 placeholder='Enter FirstName' fullWidth required />
-                            <Field as={TextField} label='LastName' name='lastName'
+                            <Field as={TextField} data-testid="lastName" label='LastName' name='lastName'
                                 helperText={<ErrorMessage name='lastName'>{msg =>
                                     <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 placeholder='Enter LastName' fullWidth required />
-                            <Field as={TextField} label='Email' name='emailId'
+                            <Field as={TextField} data-testid="email" label='Email' name='emailId'
                                 helperText={<ErrorMessage name='emailId'>{msg =>
                                     <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 placeholder='Enter EmailId' fullWidth required />
-                            <Field as={TextField} label='Password' name='password'
+                            <Field as={TextField} data-testid="password" label='Password' name='password'
                                 helperText={<ErrorMessage name='Password'>{msg =>
                                     <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 placeholder='Enter Password' type='password' fullWidth required />
-                            <Field as={TextField} label='ConfirmPassword' name='confirmPassword'
+                            <Field as={TextField} data-testid="confirmPassword" label='ConfirmPassword' name='confirmPassword'
                                 helperText={<ErrorMessage name='confirmPassword'>{msg =>
                                     <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 placeholder='Enter ConfirmPassword' type='password' fullWidth required />
@@ -101,7 +101,7 @@ export const Register = () => {
                                 }
                                 label="Remember me"
                             />
-                            <Button className="btnstyle" type='submit' color='primary' fullWidth
+                            <Button data-testid="button" className="btnstyle" type='submit' color='primary' fullWidth
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
                             <Typography>
