@@ -11,3 +11,11 @@ describe('Test Login component', () => {
         expect(title).toHaveTextContent("Employee Payroll App");
     })
 })
+
+describe('Negative Test Login component', () => {
+    test('givenDataTestId_whenVisitedLoginPage_shouldNotRenderH2TagProperty', () => {
+        const { getByTestId } = render(<Register />);
+        const title = getByTestId("h2");
+        expect(title).not.toHaveTextContent("Employee App");
+    })
+})
