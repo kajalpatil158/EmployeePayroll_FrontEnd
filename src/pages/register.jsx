@@ -16,7 +16,7 @@ import service from '../services/user.js';
  * @return Registration Page 
  */
 
-const Register = () => {
+export const Register = () => {
     const avtarStyle = { backgroundColor: 'red' }
     const initialValues = {
         firstName: '',
@@ -61,7 +61,7 @@ const Register = () => {
     return (
         <Grid align='center' className="formStyle">
             <Paper className="paperStyle">
-                <h2>
+                <h2 data-testid="h2">
                     Employee Payroll App
                 </h2>
                 <Grid><Avatar style={avtarStyle}><AccountBoxOutlinedIcon /></Avatar>
@@ -105,13 +105,11 @@ const Register = () => {
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
                             <Typography>
-                                <Link href="#" >
-                                    Forgot Password ?
-                                </Link>
+                               
                             </Typography>
 
                             <Typography> Do you have an account ?
-                            <Link to={'/Login'} >Sign In</Link>
+                            
                             </Typography>
                         </Form>)}
                 </Formik>
@@ -119,5 +117,3 @@ const Register = () => {
         </Grid>
     )
 }
-
-export default Register;
