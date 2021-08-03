@@ -20,7 +20,6 @@ describe('Negative Test Login component', () => {
     })
 })
 describe('Login Form test', () => {
-
     it('check if form login displays', () => {
       const { getByTestId } = render(<Login />);
       const logo = getByTestId('avatar');
@@ -35,4 +34,14 @@ describe('Login Form test', () => {
       expect(email).toBeInTheDocument();
       expect(password).toBeInTheDocument();
     })
+    it("givenTestIdElement_WhenLoginPageRendered_ShouldContainExpectedValuesInLoginPage", () => {
+        const { getByTestId } = render(<Login />);
+        const email = getByTestId("Email");
+        const password = getByTestId("password");
+        
+        expect(email).toHaveTextContent("Email");
+        expect(password).toHaveTextContent("Password");
+        
+      });
+    
 })
