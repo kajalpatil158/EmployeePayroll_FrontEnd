@@ -4,12 +4,12 @@ import { Avatar, Button, Grid, Paper, TextField, Typography }
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import AccountBoxOutlinedIcon from 
 '@material-ui/icons/AccountBoxOutlined';
-import {Link} from 'react-router-dom';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import '../scss/register.scss';
-import service from '../services/user.js';
+import Service from '../services/user.js';
+const service = new Service();
 /**
  * @description Registration Page Is Uses For Register A User
  * @param Material UI Data is uses
@@ -28,35 +28,32 @@ export const Register = () => {
     }
     const onSubmit = (values, props) => {
             const userDetails = {
-            firstName: values.firstName,
+              firstName: values.firstName,
               lastName: values.lastName,
               emailId: values.emailId,
               password: values.password,
-              confirmPassword: values.ConfirmPassword,
             };
-        service.register(userDetails)
-        .then((res) => {
-          if (res.data.success === true) {
-            alert("Data Is Added");
-          } else {
-            alert("Something Wrong");
-          }
-        })
-        .catch((error) => {
-            console.log(error);
-          });
-      
- }
- 
+            console.log(userDetails);
+            service.register(userDetails)
+            .then((res) => {
+                if (res.data.success === true) {
+                    alert("Data Is Added");
+                    localStorage.setItem('token', res.data.token)
+                } else {
+                    alert("Something Wrong");
+                }
+            })
+            .catch((error) => {
+                alert(error.message);
+                console.log(error);
+            });
+}
     const validationSchema = Yup.object().shape({
         firstName: Yup.string().matches(/^[A-Za-z ]*$/,'Please Enter Valid Name').min(3).required("Required"),
         lastName: Yup.string().min(2).required("Required"),
         emailId: Yup.string().email("Enter Valid Email").required("Required"),
         password: Yup.string().min(8, "Password minimum length should be 8").required("Required"),
-        confirmPassword: Yup.string().oneOf(
-            [Yup.ref("Password")],
-            "Passwords Not Matched"
-        ).required("Required"),
+       
     });
     return (
         <Grid align='center' className="formStyle">
@@ -88,10 +85,6 @@ export const Register = () => {
                                 helperText={<ErrorMessage name='Password'>{msg =>
                                     <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 placeholder='Enter Password' type='password' fullWidth required />
-                            <Field as={TextField} data-testid="confirmPassword" label='ConfirmPassword' name='confirmPassword'
-                                helperText={<ErrorMessage name='confirmPassword'>{msg =>
-                                    <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
-                                placeholder='Enter ConfirmPassword' type='password' fullWidth required />
                             <FormControlLabel
                                 control={
                                     <Field as={Checkbox}

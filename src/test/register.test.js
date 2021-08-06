@@ -1,5 +1,4 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
 import { Register } from '../pages/register'
 import "@testing-library/jest-dom/extend-expect";
 import { render } from "@testing-library/react";
