@@ -1,6 +1,6 @@
 import {Register} from './pages/register'
 import {Login}  from './pages/login';
-import Dashboard from "./components/dashboard"
+import Dashboard from "./components/dashboard";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
