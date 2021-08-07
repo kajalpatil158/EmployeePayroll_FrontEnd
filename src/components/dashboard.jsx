@@ -1,32 +1,61 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import React, { useState } from "react";
+import {
+  Button,
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  CssBaseline
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from 'react-router-dom';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ViewListIcon from '@material-ui/icons/ViewList';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   title: {
-    flexGrow: 1,
+    marginRight: "auto"
   },
+  drawer: {
+    width: 300
+  },
+  content: {
+    padding: theme.spacing(3)
+  }
 }));
 
-export default function ButtonAppBar() {
+const Dashboard = () => {
   const classes = useStyles();
-
+  const [open, setOpen] = useState(false);
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
+    <div>
+      <CssBaseline />
+      <Drawer open={open} onClose={() => setOpen(false)}>
+        <List disablePadding className={classes.drawer}>
+        <ListItem data-testid="listbutton" button component={Link} to={'/dashboard'}>
+        <ListItemIcon>
+            <ViewListIcon style={{fill: "#2D3B49"}} />
+        </ListItemIcon>
+        <ListItemText primary="List" />
+    </ListItem>
+        </List>
+      </Drawer>
+      <AppBar position="static" color="primary">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            onClick={() => setOpen(true)}
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
@@ -35,6 +64,12 @@ export default function ButtonAppBar() {
           <Button color="inherit">Log Out</Button>
         </Toolbar>
       </AppBar>
+      <main className={classes.content}>
+       
+       
+      </main>
     </div>
   );
-}
+};
+
+export default Dashboard;
