@@ -1,6 +1,6 @@
-import Axios from 'axios';
+import axios from 'axios';
 const BASE_URL="http://localhost:7000"
-Axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
 
 class Employee {
 

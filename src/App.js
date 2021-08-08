@@ -1,6 +1,7 @@
 import {Register} from './pages/register'
 import {Login}  from './pages/login';
 import Dashboard from "./components/dashboard";
+import { EmployeeForm } from './components/employeeform'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
           <Route exact path='/' component={Register} />
           <Route path='/Login' component={Login} />
           <Route path='/dashboard' component={Dashboard} />
+          <Route path='/Emp' component={EmployeeForm} />
         </Switch>
       </BrowserRouter>
     </div>

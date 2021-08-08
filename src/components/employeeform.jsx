@@ -1,6 +1,8 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
-import { values } from 'lodash';
+import * as Yup from 'yup';
+import { Button, Grid, TextField }
+ from '@material-ui/core';
+ import {  Form, Field, ErrorMessage } from 'formik';
 
 
 export const EmployeeForm = () => {
@@ -23,29 +25,28 @@ export const EmployeeForm = () => {
 
     });
 
-    const { values, handleInputChange, resetForm } = 
-            useForm(initialFValues, true, validationSchema);
+    const { values } = ( true, validationSchema);
 
-
+const handleInputChange=()=>{
+    console.log();
+}
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validationSchema()) {
           let employeeData = {
-            firstName: values.firstName,
-            lastName: values.lastName,
-            email: values.email,
-            department: values.department,
-            salary: values.salary,
-            password: values.password,
+         
            
           };
-          addOrEdit(employeeData, resetForm);
         }
     };
 
+    const resetForm =()=>{
+
+    }
+
     return (
         <Grid>
-                <Form data-testid="Form" onSubmit={handleSubmit}>
+                <Form data-testid="Form" >
                     <Field as={TextField} data-testid="firstName" label='FirstName' name='firstName'
                         helperText={<ErrorMessage name='firstName'>{msg =>
                             <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
@@ -77,8 +78,8 @@ export const EmployeeForm = () => {
                             onChange={handleInputChange}
                         placeholder='Enter Password' type='password' fullWidth required />
                     <div>
-                        <Controls.Button data-testid="Submit" type="submit" text="Submit" />
-                        <Controls.Button data-testid="Reset" text="Reset" color="default" onClick={resetForm} />
+                        <Button data-testid="Submit" type="submit" text="Submit" />
+                        <Button data-testid="Reset" text="Reset" color="default" onClick={resetForm} />
                     </div>
                 </Form>
         </Grid>
