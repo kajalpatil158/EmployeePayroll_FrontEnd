@@ -38,12 +38,39 @@ const useStyles = makeStyles((theme) => ({
 const Dashboard = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+
+  const handleList = () => {
+    employeeService
+      .getAllEmployees()
+      .then((res) => {
+        if (res.data.success === true) {
+          setEmployeeRecords((employeeRecords = res.data.EmployeeData));
+        } else {
+              setNotify({
+              isOpen: true,
+              message: "Something went wrong",
+              type: "error",
+            });
+        }
+      })
+      .catch((error) => {
+          setNotify({
+            isOpen: true,
+            message: "Something went wrong " + error.message,
+            type: "error",
+          });
+        }
+      );
+  };
+  
+
   return (
     <div>
       <CssBaseline />
       <Drawer open={open} onClose={() => setOpen(false)}>
         <List disablePadding className={classes.drawer}>
-          <ListItem data-testid="listbutton" button component={Link} to={'/dashboard'}>
+          <ListItem data-testid="listbutton" button component={Link} to={'/dashboard'}
+          type="submit" onClick={handleList} primary="List" >
             <ListItemIcon>
               <ViewListIcon style={{ fill: "#2D3B49" }} />
             </ListItemIcon>
