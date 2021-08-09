@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import {
-    Button,
-    AppBar,
-    Toolbar,
-    Typography,
-    IconButton,
-    Drawer,
-    List,
-    ListItem,
-    ListItemText,
-    CssBaseline
-  } from "@material-ui/core";
+  Button,
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  CssBaseline
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import DeleteIcon from '@material-ui/icons/Delete';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -18,6 +18,7 @@ import { Link } from 'react-router-dom';
 import ViewListIcon from '@material-ui/icons/ViewList';
 import EditIcon from '@material-ui/icons/Edit';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
+import { Paper, TableBody, TableCell, TableRow } from '@material-ui/core'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -48,32 +49,32 @@ export const Dashboard = () => {
       <Drawer variant="permanent" open={open} onClose={() => setOpen(false)}>
         <Toolbar />
         <List disablePadding className={classes.drawer}>
-        <ListItem data-testid="listbutton" button component={Link} to={'/dashboard'}
-        type="submit"  primary="List" >
-          <ListItemIcon>
-            <ViewListIcon style={{ fill: "#2D3B49" }} />
-          </ListItemIcon>
-          <ListItemText primary="List" />
-        </ListItem>
-        <ListItem data-testid="addbutton" button>
-        <ListItemIcon>
-          <PersonAddOutlinedIcon style={{ fill: "#2D3B49" }} />
-        </ListItemIcon>
-        <ListItemText primary="Add" />
-      </ListItem>
-      <ListItem data-testid="editbutton" button>
-      <ListItemIcon>
-        <EditIcon style={{ fill: "#2D3B49" }} />
-      </ListItemIcon>
-      <ListItemText primary="Edit" />
-    </ListItem>
-        <ListItem data-testid="deletebutton" button>
-          <ListItemIcon>
-            <DeleteIcon style={{ fill: "#B22222" }} />
-          </ListItemIcon>
-          <ListItemText primary="Delete" />
-        </ListItem>
-       
+          <ListItem data-testid="listbutton" button component={Link} to={'/dashboard'}
+            type="submit" primary="List" >
+            <ListItemIcon>
+              <ViewListIcon style={{ fill: "#2D3B49" }} />
+            </ListItemIcon>
+            <ListItemText primary="List" />
+          </ListItem>
+          <ListItem data-testid="addbutton" button>
+            <ListItemIcon>
+              <PersonAddOutlinedIcon style={{ fill: "#2D3B49" }} />
+            </ListItemIcon>
+            <ListItemText primary="Add" />
+          </ListItem>
+          <ListItem data-testid="editbutton" button>
+            <ListItemIcon>
+              <EditIcon style={{ fill: "#2D3B49" }} />
+            </ListItemIcon>
+            <ListItemText primary="Edit" />
+          </ListItem>
+          <ListItem data-testid="deletebutton" button>
+            <ListItemIcon>
+              <DeleteIcon style={{ fill: "#B22222" }} />
+            </ListItemIcon>
+            <ListItemText primary="Delete" />
+          </ListItem>
+
         </List>
       </Drawer>
       <AppBar position="fixed" color="primary" className={classes.appBar}>
@@ -85,6 +86,50 @@ export const Dashboard = () => {
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
+        <Paper elevation={3} className={classes.pageContent}>
+          <TblContainer>
+            <TblHead />
+            <TableBody data-testid="tablebody">
+              {
+                recordsAfterPagingAndSorting().map(item => (
+                  <TableRow data-testid="tablerow" key={item._id}>
+                    <TableCell data-testid="tablecell" >{item.firstName}</TableCell>
+                    <TableCell data-testid="tablecell">{item.lastName}</TableCell>
+                    <TableCell data-testid="tablecell">{item.email}</TableCell>
+                    <TableCell data-testid="tablecell">{item.department}</TableCell>
+                    <TableCell data-testid="tablecell">{item.salary}</TableCell>
+                    <TableCell data-testid="tablecell">{item.password}</TableCell>
+                    <TableCell data-testid="tablecell">
+                      <IconButton data-testid="editbutton"
+                        edge="start"
+                        size="small"
+                        onClick={() => openInPopUp(item)}
+                      >
+                        <EditIcon style={{ fill: "#2D3B49" }} />
+                      </IconButton>
+                      <IconButton data-testid="deletebutton"
+                        size="small"
+                        onClick={() =>
+                          setConfirmDialog({
+                            isOpen: true,
+                            title: 'Are you sure to delete this record?',
+                            subTitle: "You Can't undo this operation",
+                            onConfirm: () => { deleteEmployee(item._id) }
+                          })
+                        }
+                      >
+                        <DeleteIcon style={{ fill: "#B22222" }} />
+                      </IconButton>
+                    </TableCell>
+                  </TableRow>
+                ))
+              }
+            </TableBody>
+          </TblContainer>
+          <TblPagination />
+        </Paper>
+        <div className={classes.appBarSpacer} />
+
       </main>
     </div>
   );
