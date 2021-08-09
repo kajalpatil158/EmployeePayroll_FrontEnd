@@ -100,26 +100,7 @@ export const Dashboard = () => {
                     <TableCell data-testid="tablecell">{item.salary}</TableCell>
                     <TableCell data-testid="tablecell">{item.password}</TableCell>
                     <TableCell data-testid="tablecell">
-                      <IconButton data-testid="editbutton"
-                        edge="start"
-                        size="small"
-                        onClick={() => openInPopUp(item)}
-                      >
-                        <EditIcon style={{ fill: "#2D3B49" }} />
-                      </IconButton>
-                      <IconButton data-testid="deletebutton"
-                        size="small"
-                        onClick={() =>
-                          setConfirmDialog({
-                            isOpen: true,
-                            title: 'Are you sure to delete this record?',
-                            subTitle: "You Can't undo this operation",
-                            onConfirm: () => { deleteEmployee(item._id) }
-                          })
-                        }
-                      >
-                        <DeleteIcon style={{ fill: "#B22222" }} />
-                      </IconButton>
+                    
                     </TableCell>
                   </TableRow>
                 ))
