@@ -3,7 +3,6 @@ import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator';
 import { Button } from '@material-ui/core';
 
 const initialValues = {
-    _id:'',
     firstName: '',
     lastName: '',
     email: '',

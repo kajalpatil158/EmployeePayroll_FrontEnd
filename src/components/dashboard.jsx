@@ -61,11 +61,17 @@ export const Dashboard = () => {
   const [open, setOpen] = useState(false);
   const [action, setAction] = React.useState(null)
   const [employeeId, setEmployeeId] = React.useState(null);
+  const history = useHistory();
   const [openPopUp, setOpenPopUp] = React.useState(false);
   const [recordForEdit, setRecordForEdit] = React.useState(null)
   const [records, setRecords] = React.useState([])
   const [notify, setNotify] = React.useState({ isOpen: false, message: '', type: '' })
   const [confirmDialog, setConfirmDialog] = React.useState({ isOpen: false, title: '', subTitle: '' })
+
+  const handleLogOut = () => {
+    localStorage.removeItem('token');
+    history.push('/');
+}
 
   useEffect(() => {
     getAllemployees()
@@ -85,6 +91,7 @@ export const Dashboard = () => {
     if (action === 'add') {
         service.addEmployee(employee)
             .then((res) => {
+              console.log(res);
                 setNotify({
                     isOpen: true,
                     message: 'Employee Added Successfully',
@@ -103,7 +110,6 @@ export const Dashboard = () => {
     }
     else {
         const employeeData = {
-            _id: employeeId,
             firstName: employee.firstName,
             lastName: employee.lastName,
             email: employee.email,
@@ -183,7 +189,7 @@ export const Dashboard = () => {
                 </ListItemIcon>
                 <ListItemText primary="List" />
               </ListItem>
-              <ListItem data-testid="addbutton" button>
+              <ListItem data-testid="addbutton" button onClick={() => { setOpenPopUp(true); setRecordForEdit(null); setAction('add') }}>
                 <ListItemIcon>
                   <PersonAddOutlinedIcon style={{ fill: "#2D3B49" }} />
                 </ListItemIcon>
@@ -209,7 +215,7 @@ export const Dashboard = () => {
               <Typography variant="h6" className={classes.title}>
                 Employee Payroll App
               </Typography>
-              <Button color="inherit">Log Out</Button>
+              <Button color="inherit" onClick={handleLogOut}>Log Out</Button>
             </Toolbar>
           </AppBar>
           <main className={classes.content}>
@@ -239,7 +245,7 @@ export const Dashboard = () => {
                             onClick={() =>
                               setConfirmDialog({
                                 isOpen: true,
-                                title: 'Are you sure to delete this record?',
+                                title: 'Are you sure to delete?',
                                 subTitle: "You Can't undo this operation",
                                 onConfirm: () => { deleteEmployee(item._id) }
                               })

@@ -4,7 +4,7 @@ const TOKEN = localStorage.getItem('token') ;
 
 class Service {
     addEmployee = (userData) => {
-        return Axios.post(`/create`, userData, {
+        return Axios.post(`http://localhost:7000/addEmployee`, userData, {
             headers: {
                 'token': TOKEN
             }
@@ -12,21 +12,12 @@ class Service {
     }
 
     getEmployee = () => {
-        return Axios.get(`/read`, {
+        return Axios.get(`/empPayroll`, {
             headers: {
                 'token': TOKEN
             }
         })
     }
-    
-    updateEmployee = (userData) => {
-        return Axios.put('/update/'+userData._id, userData, {
-            headers: {
-                'token': TOKEN
-            }
-        })
-    }
-
     deleteEmployee = (_id) => {
         // console.log("user id:",_id)
         return Axios.delete(`/delete/`+_id, {

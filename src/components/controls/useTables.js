@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
         '& thead th' : {
             fontWeight: '600',
             color: "white",
-            backgroundColor: "#00AEC3",
+            backgroundColor: "#E37962",
         },
         '& tbody td': {
             fontWeight: '400',
@@ -24,7 +24,7 @@ export default function useTable(records, headCells) {
 
     const classes = useStyles()
 
-    const pages = [5, 10, 25]
+    const pages = [5, 10, 25, 40]
     const [ page, setPage ] = useState(0)
     const [ rowsPerPage, setRowsPerPage ] = useState(pages[0])
     const [ order, setOrder ] = useState()
