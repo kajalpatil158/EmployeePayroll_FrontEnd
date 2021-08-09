@@ -1,60 +1,40 @@
-import axios from 'axios';
-const BASE_URL="http://localhost:7000"
-axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
+import Axios from 'axios';
+Axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
+const TOKEN = localStorage.getItem('token') ;
 
-class Employee {
-
-    /**
-     * @description Method to return token from local storage
-     * @return token within headers
-     */
-    getToken = () => {
-      const headers = {
-        headers: { Authorization: localStorage.getItem("token") },
-      };
-      return headers;
-    };
-
-    getAllEmployees = async () => {
-        const headers = this.getToken();
-        try {
-          const res = await axios.get("http://localhost:7000/empPayroll", headers);
-          return res;
-        } catch (error) {
-          return error;
-        }
-      };
-
-      insertEmployees = async (data) => {
-        const headers = this.getToken();
-        try {
-          const res = await axios.post("http://localhost:7000/addEmployee", data, headers);
-          return res;
-        } catch (error) {
-          return error;
-        }
-      };
-
-      updateEmployee = async (employeeData) => {
-        const headers = this.getToken();
-        try {
-          const res = await axios.put("http://localhost:7000/update" + employeeData._id, employeeData, headers);
-          return res;
-        } catch (error) {
-          return error;
-        }
-      };
-
-      deleteEmployee = async (empId) => {
-        const headers = this.getToken();
-        try {
-          const res = await axios.delete("http://localhost:7000/delete" + empId, headers);
-          return res;
-        } catch (error) {
-          return error;
-        }
-      };
-    
+class Service {
+    addEmployee = (userData) => {
+        return Axios.post(`/create`, userData, {
+            headers: {
+                'token': TOKEN
+            }
+        })
     }
 
-    export default new Employee();
+    getEmployee = () => {
+        return Axios.get(`/read`, {
+            headers: {
+                'token': TOKEN
+            }
+        })
+    }
+    
+    updateEmployee = (userData) => {
+        return Axios.put('/update/'+userData._id, userData, {
+            headers: {
+                'token': TOKEN
+            }
+        })
+    }
+
+    deleteEmployee = (_id) => {
+        // console.log("user id:",_id)
+        return Axios.delete(`/delete/`+_id, {
+            headers: {
+                'token': TOKEN
+            }
+        })
+    }
+}
+
+export default Service;
