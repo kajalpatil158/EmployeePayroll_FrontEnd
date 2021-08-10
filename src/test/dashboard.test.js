@@ -31,3 +31,21 @@ describe('Negative Test dashboard Component', () => {
     })
 })
 
+describe('Test dashboard side navigation Component', () => {
+    it('givenDataTestId_whenVisitedDashboardSideNavigationComponent_shouldRenderProperly', (done) => {
+        const { getByTestId } = render(<Dashboard />);
+        const drawer = getByTestId('drawer');
+        const listbutton = getByTestId('listbutton');
+        const addbutton = getByTestId('addbutton')
+        const editbutton = getByTestId('editbutton');
+        const deletebutton = getByTestId('deletebutton');
+
+        expect(drawer).toBeInTheDocument();
+        expect(listbutton).toBeInTheDocument();
+        expect(addbutton).toBeInTheDocument();
+        expect(editbutton).toBeInTheDocument();
+        expect(deletebutton).toBeInTheDocument();
+        done()
+    })
+})
+

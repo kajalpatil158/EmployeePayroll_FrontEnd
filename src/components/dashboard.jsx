@@ -204,7 +204,7 @@ const handleList = () => {
       <Router>
         <div className={classes.root}>
           <CssBaseline />
-          <Drawer variant="permanent" open={open} onClose={() => setOpen(false)}>
+          <Drawer data-testid="drawer" variant="permanent" open={open} onClose={() => setOpen(false)}>
             <Toolbar />
             <List disablePadding className={classes.drawer}>
             <ListItem data-testid="listbutton" button component={Link} to={'/dashboard'}>
