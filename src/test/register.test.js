@@ -25,7 +25,6 @@ describe("Register Page Elements availabity test", () => {
       const lastName = getByTestId("lastName");
       const email = getByTestId("email");
       const password = getByTestId("password");
-      const confirmPassword = getByTestId("confirmPassword");
       const button = getByTestId("button");
   
       expect(logo).toBeInTheDocument();
@@ -35,7 +34,6 @@ describe("Register Page Elements availabity test", () => {
       expect(button).toBeInTheDocument();
       expect(email).toBeInTheDocument();
       expect(password).toBeInTheDocument();
-      expect(confirmPassword).toBeInTheDocument();
     })
 
     it("givenTestIdElement_WhenLoginPageRendered_ShouldContainExpectedElementValue", () => {
@@ -44,13 +42,12 @@ describe("Register Page Elements availabity test", () => {
         const lastName = getByTestId("lastName");
         const email = getByTestId("email");
         const password = getByTestId("password");
-        const confirmPassword = getByTestId("confirmPassword");
+       
     
         expect(firstName).toHaveTextContent("FirstName");
         expect(lastName).toHaveTextContent("LastName");
         expect(email).toHaveTextContent("Email");
         expect(password).toHaveTextContent("Password");
-        expect(confirmPassword).toHaveTextContent("ConfirmPassword");
         
       });
 

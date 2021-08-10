@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Button, Grid, Paper, TextField, Typography }
+import { Avatar, Button, Grid, Paper, TextField, Typography,Link }
  from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import AccountBoxOutlinedIcon from 
@@ -97,12 +97,16 @@ export const Register = () => {
                             <Button data-testid="button" className="btnstyle" type='submit' color='primary' fullWidth
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
-                            <Typography>
-                               
+                                <Typography>
+                                <Link href="#" >
+                                    Forgot Password ?
+                                </Link>
                             </Typography>
 
                             <Typography> Do you have an account ?
-                            
+                                <Link href="#" >
+                                    Sign Up
+                                </Link>
                             </Typography>
                         </Form>)}
                 </Formik>

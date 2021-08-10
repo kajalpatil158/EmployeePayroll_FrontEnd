@@ -6,6 +6,7 @@ import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../scss/login.scss";
 import * as Yup from 'yup';
+import { Link, useHistory } from 'react-router-dom';
 import Service from '../services/user.js';
 const service = new Service();
 /**
@@ -15,6 +16,7 @@ const service = new Service();
  */
 
 export const Login = () => {
+    const history = useHistory();
     const avtarStyle = { backgroundColor: 'green' }
     const initialValues = {
         email: '',
@@ -33,6 +35,7 @@ export const Login = () => {
                     if (res.data.success === true) {
                         alert("Data Is Added");
                         localStorage.setItem('token', res.data.token)
+                        history.push('/dashboard');
                     } else {
                         alert("Something Wrong");
                     }
@@ -83,12 +86,16 @@ export const Login = () => {
                                 value='Rgister' label='Button'
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
-                            <Typography>
-                                
+                                <Typography>
+                                <Link href="#" >
+                                    Forgot Password ?
+                                </Link>
                             </Typography>
 
-                            <Typography> Do you have an account?
-                                
+                            <Typography> Do you have an account ?
+                                <Link href="#" >
+                                    Sign Up
+                                </Link>
                             </Typography>
                         </Form>)}
                 </Formik>

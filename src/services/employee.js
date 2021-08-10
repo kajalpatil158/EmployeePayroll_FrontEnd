@@ -19,7 +19,7 @@ class Service {
    */
 
     addEmployee = (userData) => {
-        return Axios.post(`http://localhost:7000/addEmployee`, userData)
+        return Axios.post(`/addEmployee`, userData)
     }
 
     /**
@@ -30,7 +30,7 @@ class Service {
      getAllEmployees = () => {
         const headers = this.getToken();
         {
-        return Axios.get(`/empPayroll`)
+        return Axios.get(`http://localhost:7000/empPayroll`)
         }
     }
 
