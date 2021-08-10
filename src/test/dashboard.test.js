@@ -16,3 +16,18 @@ describe('Test dashboard Component', () => {
         done();
     })
 })
+
+describe('Negative Test dashboard Component', () => {
+    it('givenWrongDataTestId_whenVisitedFormComponent_shouldNotRenderProperly', (done) => {
+        const { queryByTestId } = render(<Dashboard />);
+        const appbar = queryByTestId('appba');
+        const typography = queryByTestId('typograph');
+        const logoutbutton = queryByTestId('logoutbuton')
+
+        expect(appbar).not.toBeInTheDocument();
+        expect(typography).not.toBeInTheDocument();
+        expect(logoutbutton).not.toBeInTheDocument();
+        done();
+    })
+})
+
