@@ -34,12 +34,24 @@ class Service {
         }
     }
 
+    
+    /**
+   * @description- update employee data is Perform
+   * @return- token is within header
+   */ 
+
     updateEmployee = (userData) => {
       const headers = this.getToken();
       {
       return Axios.put('http://localhost:7000/update/'+userData._id)
   }
 }
+
+
+    /**
+   * @description- delete employee data is Perform
+   * @return- token is within header
+   */ 
 
     deleteEmployee = (_id) => {
       const headers = this.getToken();
