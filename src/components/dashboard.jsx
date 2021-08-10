@@ -87,6 +87,7 @@ export const Dashboard = () => {
         console.log(error)
       })
   }
+  
   const addOrEdit = (employee, resetForm) => {
     if (action === 'add') {
         service.addEmployee(employee)
@@ -182,13 +183,12 @@ export const Dashboard = () => {
           <Drawer variant="permanent" open={open} onClose={() => setOpen(false)}>
             <Toolbar />
             <List disablePadding className={classes.drawer}>
-              <ListItem data-testid="listbutton" button component={Link} to={'/dashboard'}
-                type="submit" primary="List" >
-                <ListItemIcon>
-                  <ViewListIcon style={{ fill: "#2D3B49" }} />
-                </ListItemIcon>
-                <ListItemText primary="List" />
-              </ListItem>
+            <ListItem data-testid="listbutton" button component={Link} to={'/dashboard'}>
+            <ListItemIcon>
+                <ViewListIcon style={{fill: "#2D3B49"}} />
+            </ListItemIcon>
+            <ListItemText primary="List" />
+        </ListItem>
               <ListItem data-testid="addbutton" button onClick={() => { setOpenPopUp(true); setRecordForEdit(null); setAction('add') }}>
                 <ListItemIcon>
                   <PersonAddOutlinedIcon style={{ fill: "#2D3B49" }} />
