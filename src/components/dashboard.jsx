@@ -105,7 +105,6 @@ const handleList = () => {
   const getAllemployees = () => {
     service.getAllEmployees()
       .then((res) => {
-        console.log(res.data.data)
         setRecords(res.data.data)
       })
       .catch((error) => {
@@ -235,12 +234,12 @@ const handleList = () => {
 
             </List>
           </Drawer>
-          <AppBar position="fixed" color="primary" className={classes.appBar}>
+          <AppBar data-testid="appbar" position="fixed" color="primary" className={classes.appBar}>
             <Toolbar>
-              <Typography variant="h6" className={classes.title}>
+              <Typography data-testid="typography" variant="h6" className={classes.title}>
                 Employee Payroll App
               </Typography>
-              <Button color="inherit" onClick={handleLogOut}>Log Out</Button>
+              <Button data-testid="logoutbutton" color="inherit" onClick={handleLogOut}>Log Out</Button>
             </Toolbar>
           </AppBar>
           <main className={classes.content}>

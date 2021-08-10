@@ -19,7 +19,7 @@ class Service {
    */
 
     addEmployee = (userData) => {
-        return Axios.post(`/addEmployee`, userData)
+        return Axios.post(`http://localhost:7000/addEmployee`, userData)
     }
 
     /**
@@ -33,6 +33,8 @@ class Service {
         return Axios.get(`/empPayroll`)
         }
     }
+
+    
 }
 
 export default Service
