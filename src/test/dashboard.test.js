@@ -49,3 +49,21 @@ describe('Test dashboard side navigation Component', () => {
     })
 })
 
+describe('Negative Test dashboard side navigation Component', () => {
+    it('givenWrongDataTestId_whenVisitedDashboardSideNavigationComponent_shouldNotRenderProperly', (done) => {
+        const { queryByTestId } = render(<Dashboard />);
+        const drawer = queryByTestId('drwer');
+        const listbutton = queryByTestId('listbuton');
+        const addbutton = queryByTestId('addbuton')
+        const editbutton = queryByTestId('editbuton');
+        const deletebutton = queryByTestId('deletebuton');
+
+        expect(drawer).not.toBeInTheDocument();
+        expect(listbutton).not.toBeInTheDocument();
+        expect(addbutton).not.toBeInTheDocument();
+        expect(editbutton).not.toBeInTheDocument();
+        expect(deletebutton).not.toBeInTheDocument();
+        done()
+    })
+})
+
