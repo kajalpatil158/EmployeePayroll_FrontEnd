@@ -63,6 +63,7 @@ export const Dashboard = () => {
   const [employeeId, setEmployeeId] = React.useState(null);
   const history = useHistory();
   const [openPopUp, setOpenPopUp] = React.useState(false);
+  var [employeeRecords, setEmployeeRecords] = useState();
   const [recordForEdit, setRecordForEdit] = React.useState(null)
   const [records, setRecords] = React.useState([])
   const [notify, setNotify] = React.useState({ isOpen: false, message: '', type: '' })
@@ -73,12 +74,36 @@ export const Dashboard = () => {
     history.push('/');
 }
 
+const handleList = () => {
+  service.getAllEmployees()
+    .then((res) => {
+      if (res.data.success === true) {
+        setEmployeeRecords((employeeRecords = res.data.EmployeeData));
+      } else {
+            setNotify({
+            isOpen: true,
+            message: "Something went wrong",
+            type: "error",
+          });
+      }
+    })
+    .catch((error) => {
+        setNotify({
+          isOpen: true,
+          message: "Something went wrong " + error.message,
+          type: "error",
+        });
+      }
+    );
+};
+
+
   useEffect(() => {
     getAllemployees()
   }, [setRecords])
 
   const getAllemployees = () => {
-    service.getEmployee()
+    service.getAllEmployees()
       .then((res) => {
         console.log(res.data.data)
         setRecords(res.data.data)
@@ -187,7 +212,7 @@ export const Dashboard = () => {
             <ListItemIcon>
                 <ViewListIcon style={{fill: "#2D3B49"}} />
             </ListItemIcon>
-            <ListItemText primary="List" />
+            <ListItemText type="submit" onClick={handleList} primary="List" />
         </ListItem>
               <ListItem data-testid="addbutton" button onClick={() => { setOpenPopUp(true); setRecordForEdit(null); setAction('add') }}>
                 <ListItemIcon>

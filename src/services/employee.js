@@ -1,6 +1,5 @@
 import Axios from 'axios';
 Axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
-const TOKEN = localStorage.getItem('token') ;
 
 class Service {
     /**
@@ -16,31 +15,24 @@ class Service {
 
   /**
    * @description- Add Employee Operation is Perform
-   * @return token within headers
+    * @return- token is within header
    */
 
     addEmployee = (userData) => {
-        console.log(TOKEN);
         return Axios.post(`/addEmployee`, userData)
     }
 
     /**
    * @description- get employee data is Perform
-   * @return token within headers
+   * @return- token is within header
    */ 
 
-    getEmployee = () => {
+     getAllEmployees = () => {
+        const headers = this.getToken();
+        {
         return Axios.get(`/empPayroll`)
-    }
-
-
-    deleteEmployee = (_id) => {
-        return Axios.delete(`/delete/`+_id, {
-            headers: {
-                'token': TOKEN
-            }
-        })
+        }
     }
 }
 
-export default Service;
+export default Service
