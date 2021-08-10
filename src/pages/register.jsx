@@ -104,7 +104,7 @@ export const Register = () => {
                             </Typography>
 
                             <Typography> Do you have an account ?
-                                <Link href="#" >
+                                <Link href="/Login" >
                                     Sign Up
                                 </Link>
                             </Typography>

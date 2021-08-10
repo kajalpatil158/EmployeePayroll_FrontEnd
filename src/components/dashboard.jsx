@@ -71,7 +71,7 @@ export const Dashboard = () => {
 
   const handleLogOut = () => {
     localStorage.removeItem('token');
-    history.push('/');
+    history.push('/Login');
 }
 
 const handleList = () => {
@@ -135,6 +135,7 @@ const handleList = () => {
     }
     else {
         const employeeData = {
+            _id: employeeId,
             firstName: employee.firstName,
             lastName: employee.lastName,
             email: employee.email,
@@ -158,7 +159,7 @@ const handleList = () => {
                 })
             })
     }
-    resetForm()
+    //resetForm()
     setOpenPopUp(false)
     setRecordForEdit(null);
     setAction('add');
@@ -275,7 +276,7 @@ const handleList = () => {
                               })
                             }
                           >
-                            <DeleteIcon style={{ fill: "#B22222" }} />
+                            <DeleteIcon style={{ fill: "#C70039" }} />
                           </IconButton>
                         </TableCell>
                       </TableRow>

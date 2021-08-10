@@ -93,7 +93,7 @@ export const Login = () => {
                             </Typography>
 
                             <Typography> Do you have an account ?
-                                <Link href="#" >
+                                <Link href="/dashboard" >
                                     Sign Up
                                 </Link>
                             </Typography>

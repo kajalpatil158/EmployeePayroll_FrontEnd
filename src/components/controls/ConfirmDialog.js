@@ -36,9 +36,7 @@ export default function ConfirmDialog(props) {
     return(
         <Dialog open={confirmDialog.isOpen} classes={{paper: classes.dialog}}>
             <DialogTitle className={classes.dialogTitle}>
-                <IconButton disableFocusRipple className={classes.titleIcon}>
-                    <InfoIcon />
-                </IconButton>
+               
             </DialogTitle>
             <DialogContent className={classes.dialogContent}>
                 <Typography variant='h6'>
@@ -51,12 +49,12 @@ export default function ConfirmDialog(props) {
             <DialogActions className={classes.dialogAction}>
                 <Controls.Button 
                     text="No"
-                    color="default"  
+                    color="primary"  
                     onClick={() => setConfirmDialog({...confirmDialog, isOpen:false})}  
                 />
                 <Controls.Button
                     text="Yes"
-                    color="secondary"    
+                    color="#C062E3"    
                     onClick = {confirmDialog.onConfirm}
                 />
             </DialogActions>

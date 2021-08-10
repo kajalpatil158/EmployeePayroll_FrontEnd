@@ -19,7 +19,7 @@ class Service {
    */
 
     addEmployee = (userData) => {
-        return Axios.post(`/addEmployee`, userData)
+        return Axios.post(`http://localhost:7000/addEmployee`, userData)
     }
 
     /**
@@ -34,7 +34,19 @@ class Service {
         }
     }
 
-    
+    updateEmployee = (userData) => {
+      const headers = this.getToken();
+      {
+      return Axios.put('http://localhost:7000/update/'+userData._id)
+  }
 }
+
+    deleteEmployee = (_id) => {
+      const headers = this.getToken();
+      {
+      return Axios.delete(`http://localhost:7000/delete/`+_id)
+      }
+    }
+  }
 
 export default Service
