@@ -31,14 +31,26 @@ describe('Negative Test dashboard Component', () => {
     })
 })
 
-
-
 describe('Negative Test dashboard Component', () => {
     it('givenWrongDataTestId_whenVisitedFormComponent_shouldNotRenderProperly', (done) => {
         const { queryByTestId } = render(<Dashboard />);
         const appbar = queryByTestId('appar');
         const typography = queryByTestId('typoraphy');
         const logoutbutton = queryByTestId('logutbutoon')
+
+        expect(appbar).not.toBeInTheDocument();
+        expect(typography).not.toBeInTheDocument();
+        expect(logoutbutton).not.toBeInTheDocument();
+        done();
+    })
+})
+
+describe('Negative Test dashboard Component', () => {
+    it('givenWrongDataTestId_whenVisitedFormComponent_shouldNotRenderProperly', (done) => {
+        const { queryByTestId } = render(<Dashboard />);
+        const appbar = queryByTestId('apbar');
+        const typography = queryByTestId('tyoraphy');
+        const logoutbutton = queryByTestId('logoutbton')
 
         expect(appbar).not.toBeInTheDocument();
         expect(typography).not.toBeInTheDocument();
@@ -84,3 +96,39 @@ describe('Negative Test dashboard side navigation Component', () => {
     })
 })
 
+
+describe('Negative Test dashboard side navigation Component', () => {
+    it('givenWrongDataTestId_whenVisitedDashboardSideNavigationComponent_shouldNotRenderProperly', (done) => {
+        const { queryByTestId } = render(<Dashboard />);
+        const drawer = queryByTestId('draer');
+        const listbutton = queryByTestId('listbutto');
+        const addbutton = queryByTestId('addbuttn')
+        const editbutton = queryByTestId('editbuttn');
+        const deletebutton = queryByTestId('deleebuton');
+
+        expect(drawer).not.toBeInTheDocument();
+        expect(listbutton).not.toBeInTheDocument();
+        expect(addbutton).not.toBeInTheDocument();
+        expect(editbutton).not.toBeInTheDocument();
+        expect(deletebutton).not.toBeInTheDocument();
+        done()
+    })
+})
+
+describe('Negative Test dashboard side navigation Component', () => {
+    it('givenWrongDataTestId_whenVisitedDashboardSideNavigationComponent_shouldNotRenderProperly', (done) => {
+        const { queryByTestId } = render(<Dashboard />);
+        const drawer = queryByTestId('draer');
+        const listbutton = queryByTestId('litbutto');
+        const addbutton = queryByTestId('adbuttn')
+        const editbutton = queryByTestId('edtbuton');
+        const deletebutton = queryByTestId('dletebuton');
+
+        expect(drawer).not.toBeInTheDocument();
+        expect(listbutton).not.toBeInTheDocument();
+        expect(addbutton).not.toBeInTheDocument();
+        expect(editbutton).not.toBeInTheDocument();
+        expect(deletebutton).not.toBeInTheDocument();
+        done()
+    })
+})
