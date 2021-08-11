@@ -92,3 +92,25 @@ describe('Negative Test Employee form Component', () => {
         done();
     })
 })
+
+describe('Negative Test Employee form Component', () => {
+    it('givenWrongDataTestId_whenVisitedFormComponent_shouldNotRenderProperly', (done) => {
+        const { queryByTestId } = render(<EmployeeForm />);
+        const form = queryByTestId('fom');
+        const firstname = queryByTestId('firsnam');
+        const lastname = queryByTestId('lastam');
+        const email = queryByTestId('emai');
+        const department = queryByTestId('dpartnt');
+        const salary = queryByTestId('salay');
+        const button = queryByTestId('buttn');
+
+        expect(form).not.toBeInTheDocument();
+        expect(firstname).not.toBeInTheDocument();
+        expect(lastname).not.toBeInTheDocument();
+        expect(email).not.toBeInTheDocument();
+        expect(department).not.toBeInTheDocument();
+        expect(salary).not.toBeInTheDocument();
+        expect(button).not.toBeInTheDocument();
+        done();
+    })
+})
