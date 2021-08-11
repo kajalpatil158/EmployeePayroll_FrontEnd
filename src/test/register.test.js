@@ -15,6 +15,18 @@ describe('Test Login component', () => {
         const title = getByTestId("h2");
         expect(title).not.toHaveTextContent("Employee App");
     })
+
+    test('givenDataTestId_whenVisitedLoginPage_shouldNotRenderH2TagProperty', () => {
+      const { getByTestId } = render(<Register />);
+      const title = getByTestId("h2");
+      expect(title).not.toHaveTextContent("Employee Paoll");
+  })
+
+  test('givenDataTestId_whenVisitedLoginPage_shouldNotRenderH2TagProperty', () => {
+    const { getByTestId } = render(<Register />);
+    const title = getByTestId("h2");
+    expect(title).not.toHaveTextContent("Emp Payroll");
+})
 })
 describe("Register Page Elements availabity test", () => {
     it("givenTestIdElement_WhenRegisterPageRendered_ShouldContainThoseElements", () => {
@@ -64,4 +76,35 @@ describe("Register Page Elements availabity test", () => {
         expect(email).not.toHaveTextContent("email");
         expect(password).not.toHaveTextContent("password");
       });
+
+
+
+it("givenTestIdElement_WhenLoginPageRendered_ShouldNotContainExpectedElementValue", () => {
+  const { getByTestId } = render(<Register />);
+  const firstName = getByTestId("firstName");
+  const lastName = getByTestId("lastName");
+  const email = getByTestId("email");
+  const password = getByTestId("password");
+ 
+
+  expect(firstName).not.toHaveTextContent("firstame");
+  expect(lastName).not.toHaveTextContent("lastName");
+  expect(email).not.toHaveTextContent("email");
+  expect(password).not.toHaveTextContent("password");
+});
+
+
+it("givenTestIdElement_WhenLoginPageRendered_ShouldNotContainExpectedElementValue", () => {
+  const { getByTestId } = render(<Register />);
+  const firstName = getByTestId("firstName");
+  const lastName = getByTestId("lastName");
+  const email = getByTestId("email");
+  const password = getByTestId("password");
+ 
+
+  expect(firstName).not.toHaveTextContent("firsame");
+  expect(lastName).not.toHaveTextContent("lastNme");
+  expect(email).not.toHaveTextContent("emil");
+  expect(password).not.toHaveTextContent("pasword");
+});
 })  
