@@ -31,6 +31,23 @@ describe('Negative Test dashboard Component', () => {
     })
 })
 
+
+
+describe('Negative Test dashboard Component', () => {
+    it('givenWrongDataTestId_whenVisitedFormComponent_shouldNotRenderProperly', (done) => {
+        const { queryByTestId } = render(<Dashboard />);
+        const appbar = queryByTestId('appar');
+        const typography = queryByTestId('typoraphy');
+        const logoutbutton = queryByTestId('logutbutoon')
+
+        expect(appbar).not.toBeInTheDocument();
+        expect(typography).not.toBeInTheDocument();
+        expect(logoutbutton).not.toBeInTheDocument();
+        done();
+    })
+})
+
+
 describe('Test dashboard side navigation Component', () => {
     it('givenDataTestId_whenVisitedDashboardSideNavigationComponent_shouldRenderProperly', (done) => {
         const { getByTestId } = render(<Dashboard />);
