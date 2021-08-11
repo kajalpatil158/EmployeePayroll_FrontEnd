@@ -21,11 +21,11 @@ import EditIcon from '@material-ui/icons/Edit';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import { Paper, TableBody, TableCell, TableRow } from '@material-ui/core';
 import useTable from './controls/useTables';
-import EmployeeForm from "./EmployeeForm";
-import PopUp from "./Popup";
-import ConfirmDialog from "./controls/ConfirmDialog";
+import EmployeeForm from "./employeeForm";
+import PopUp from "./popup";
+import ConfirmDialog from "./controls/confirmDialog";
 import Notification from "./controls/notifications";
-import Service from '../services/Employee';
+import Service from '../services/employee';
 const service = new Service();
 
 const useStyles = makeStyles((theme) => ({

@@ -33,8 +33,7 @@ class Service {
         return Axios.get(`http://localhost:7000/empPayroll`)
         }
     }
-
-    
+   
     /**
    * @description- update employee data is Perform
    * @return- token is within header
@@ -46,7 +45,6 @@ class Service {
       return Axios.put('http://localhost:7000/update/'+userData._id)
   }
 }
-
 
     /**
    * @description- delete employee data is Perform
