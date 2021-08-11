@@ -24,7 +24,7 @@ export default function useTable(records, headCells) {
 
     const classes = useStyles()
 
-    const pages = [5, 10, 25, 40]
+    const pages = [5, 10, 25]
     const [ page, setPage ] = useState(0)
     const [ rowsPerPage, setRowsPerPage ] = useState(pages[0])
     const [ order, setOrder ] = useState()
@@ -39,9 +39,9 @@ export default function useTable(records, headCells) {
     const TblHead = props => {
 
         const handleSortRequest = cellId => {
-            const isAsc = orderBy === cellId && order === "asc";
-            setOrder(isAsc ? 'desc' : 'asc')
-            SetOrderBy(cellId)
+            const isAsc = orderBy === cellId && order === "desc";
+            setOrder(isAsc ? 'asc' : 'desc')
+            SetOrderBy(isAsc)
         }
 
         return (
@@ -50,7 +50,7 @@ export default function useTable(records, headCells) {
                 {
                     headCells.map(headCell => (
                     <TableCell key={headCell.id} 
-                        sortDirection={orderBy === headCell.id ? order: false}>
+                        sortDirection={orderBy === headCell.id ? order: true}>
                         {headCell.disableSorting ? headCell.label :
                         <TableSortLabel 
                             active={orderBy === headCell.id}

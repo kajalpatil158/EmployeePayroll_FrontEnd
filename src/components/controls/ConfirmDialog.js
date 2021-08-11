@@ -2,7 +2,6 @@ import React from 'react'
 import { Dialog, DialogActions, DialogContent, IconButton, Typography } from '@material-ui/core';
 import { DialogTitle, makeStyles } from '@material-ui/core';
 import Controls from './controls'
-import InfoIcon from '@material-ui/icons/Info';
 
 const useStyles = makeStyles(theme => ({
     dialog:{
@@ -29,7 +28,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function ConfirmDialog(props) {
     
-    // eslint-disable-next-line no-unused-vars
     const { confirmDialog, setConfirmDialog } = props
     const classes = useStyles();
 

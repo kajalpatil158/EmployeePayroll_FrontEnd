@@ -86,7 +86,7 @@ export const Login = () => {
                                 value='Rgister' label='Button'
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
-                                <Typography>
+                               <Typography>
                                 <Link href="#" >
                                     Forgot Password ?
                                 </Link>
