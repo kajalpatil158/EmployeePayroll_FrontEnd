@@ -159,7 +159,7 @@ const handleList = () => {
                 })
             })
     }
-    resetForm()
+    //resetForm()
     setOpenPopUp(false)
     setRecordForEdit(null);
     setAction('add');

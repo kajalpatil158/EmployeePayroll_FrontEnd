@@ -19,7 +19,7 @@ class Service {
    */
 
     addEmployee = (userData) => {
-        return Axios.post(`/addEmployee`, userData)
+        return Axios.post(`http://localhost:7000/addEmployee`, userData)
     }
 
     /**
@@ -28,10 +28,7 @@ class Service {
    */ 
 
      getAllEmployees = () => {
-        const headers = this.getToken();
-        {
-        return Axios.get(`/empPayroll`)
-        }
+        return Axios.get(`/employees`)
     }
    
     /**
@@ -40,11 +37,8 @@ class Service {
    */ 
 
     updateEmployee = (userData) => {
-      const headers = this.getToken();
-      {
       return Axios.put('/update/'+userData._id)
   }
-}
 
     /**
    * @description- delete employee data is Perform
@@ -52,10 +46,7 @@ class Service {
    */ 
 
     deleteEmployee = (_id) => {
-      const headers = this.getToken();
-      {
-      return Axios.delete(`/delete/`+_id)
-      }
+      return Axios.delete(`/delete/`+_id)   
     }
   }
 
