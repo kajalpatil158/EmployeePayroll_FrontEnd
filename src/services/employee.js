@@ -28,7 +28,7 @@ class Service {
    */ 
 
      getAllEmployees = () => {
-        return Axios.get(`/employees`)
+        return Axios.get(`http://localhost:7000/employees`)
     }
    
     /**
@@ -37,7 +37,7 @@ class Service {
    */ 
 
     updateEmployee = (userData) => {
-      return Axios.put('/update/'+userData._id)
+      return Axios.put('http://localhost:7000/update/'+userData._id)
   }
 
     /**
@@ -46,7 +46,7 @@ class Service {
    */ 
 
     deleteEmployee = (_id) => {
-      return Axios.delete(`/delete/`+_id)   
+      return Axios.delete(`http://localhost:7000/delete/`+_id)   
     }
   }
 

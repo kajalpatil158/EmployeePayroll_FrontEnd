@@ -73,31 +73,6 @@ export const Dashboard = () => {
     localStorage.removeItem('token');
     history.push('/Login');
 }
-
-const handleList = () => {
-  service.getAllEmployees()
-    .then((res) => {
-      if (res.data.success === true) {
-        setEmployeeRecords((employeeRecords = res.data.EmployeeData));
-      } else {
-            setNotify({
-            isOpen: true,
-            message: "Something went wrong",
-            type: "error",
-          });
-      }
-    })
-    .catch((error) => {
-        setNotify({
-          isOpen: true,
-          message: "Something went wrong " + error.message,
-          type: "error",
-        });
-      }
-    );
-};
-
-
   useEffect(() => {
     getAllemployees()
   }, [setRecords])
@@ -111,8 +86,7 @@ const handleList = () => {
         console.log(error)
       })
   }
-  
-  const addOrEdit = (employee, resetForm) => {
+    const addOrEdit = (employee, resetForm) => {
     if (action === 'add') {
         service.addEmployee(employee)
             .then((res) => {
@@ -212,7 +186,7 @@ const handleList = () => {
             <ListItemIcon>
                 <ViewListIcon style={{fill: "#2D3B49"}} />
             </ListItemIcon>
-            <ListItemText type="submit" onClick={handleList} primary="List" />
+            <ListItemText type="submit" onClick={() => { setOpenPopUp(true); setRecordForEdit(null); setAction('add') }} primary="List" />
         </ListItem>
               <ListItem data-testid="addbutton" button onClick={() => { setOpenPopUp(true); setRecordForEdit(null); setAction('add') }}>
                 <ListItemIcon>
