@@ -89,11 +89,13 @@ export const Dashboard = () => {
         console.log(error)
       })
   }
-    const addOrEdit = (employee, resetForm) => {
+
+
+
+  const addOrEdit = (employee, resetForm) => {
     if (action === 'add') {
         service.addEmployee(employee)
             .then((res) => {
-              console.log(res);
                 setNotify({
                     isOpen: true,
                     message: 'Employee Added Successfully',
@@ -141,13 +143,13 @@ export const Dashboard = () => {
     setRecordForEdit(null);
     setAction('add');
 }
-  const openInPopUp = item => {
-    setRecordForEdit(item)
+
+const openInPopUp = userData => {
+    setRecordForEdit(userData)
     setOpenPopUp(true)
     setAction('update')
-    setEmployeeId(item._id)
+    setEmployeeId(userData._id)
 }
-
   const deleteEmployee = (_id) => {
     setConfirmDialog({
       ...confirmDialog,
