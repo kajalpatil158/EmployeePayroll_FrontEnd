@@ -29,7 +29,7 @@ export default function EmployeeForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(values)
+        //console.log(values)
         addOrEdit(values, resetForm)
         resetForm()
     }
