@@ -63,7 +63,6 @@ export const Dashboard = () => {
   const [employeeId, setEmployeeId] = React.useState(null);
   const history = useHistory();
   const [openPopUp, setOpenPopUp] = React.useState(false);
-  var [employeeRecords, setEmployeeRecords] = useState();
   const [recordForEdit, setRecordForEdit] = React.useState(null)
   const [records, setRecords] = React.useState([])
   const [notify, setNotify] = React.useState({ isOpen: false, message: '', type: '' })
@@ -133,7 +132,7 @@ export const Dashboard = () => {
                 })
             })
     }
-    //resetForm()
+    resetForm()
     setOpenPopUp(false)
     setRecordForEdit(null);
     setAction('add');

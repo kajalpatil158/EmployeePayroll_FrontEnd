@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dialog, DialogActions, DialogContent, IconButton, Typography } from '@material-ui/core';
+import { Dialog, DialogActions, DialogContent, Typography } from '@material-ui/core';
 import { DialogTitle, makeStyles } from '@material-ui/core';
 import Controls from './controls'
 

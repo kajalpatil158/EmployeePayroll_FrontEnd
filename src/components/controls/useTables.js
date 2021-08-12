@@ -87,25 +87,25 @@ export default function useTable(records, headCells) {
     function stableSort(array, comparator){
         const stablizedThis = array.map((el, index) => [el, index])
         stablizedThis.sort((a,b) => {
-            const order = comparator(a[0], b[0]);
+            const order = comparator(b[0], array[0]);
             if(order!==0) return order;
-            return a[1] - b[1];
+            return b[1] - a[1];
         })
         return stablizedThis.map((el) => el[0]);
     }
 
     function getComparator(order, orderBy){
-        return order === 'desc' ?
-            (a, b) => descendingComparator(a,b, orderBy)
-            : (a, b) => -descendingComparator(a,b, orderBy)
+        return order === 'asc' ?
+            (b, a) => descendingComparator(a,b, orderBy)
+            : (b, a) => -descendingComparator(a,b, orderBy)
     }
 
-    function descendingComparator(a, b, orderBy){
-        if(b[orderBy] < a[orderBy]){
-            return -1;
-        }
-        if(b[orderBy] > a[orderBy]){
+    function descendingComparator(b, a, orderBy){
+        if(a[orderBy] < b[orderBy]){
             return 1;
+        }
+        if(a[orderBy] > b[orderBy]){
+            return -1;
         }
         return 0;
     }
