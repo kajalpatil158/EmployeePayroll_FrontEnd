@@ -67,8 +67,12 @@ export const Dashboard = () => {
   const [records, setRecords] = React.useState([])
   const [notify, setNotify] = React.useState({ isOpen: false, message: '', type: '' })
   const [confirmDialog, setConfirmDialog] = React.useState({ isOpen: false, title: '', subTitle: '' })
-
+  
   const handleLogOut = () => {
+    setConfirmDialog({
+      ...confirmDialog,
+      isOpen: false
+    })
     localStorage.removeItem('token');
     history.push('/Login');
 }
@@ -213,7 +217,15 @@ export const Dashboard = () => {
               <Typography data-testid="typography" variant="h6" className={classes.title}>
                 Employee Payroll App
               </Typography>
-              <Button data-testid="logoutbutton" color="inherit" onClick={handleLogOut}>Log Out</Button>
+              <Button data-testid="logoutbutton" color="inherit" 
+              onClick={() =>
+                setConfirmDialog({
+                  isOpen: true,
+                  title: 'Are you sure to log out?',
+                  onConfirm: { handleLogOut }
+                })
+              }
+              > Log Out </Button>
             </Toolbar>
           </AppBar>
           <main className={classes.content}>
