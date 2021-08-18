@@ -33,7 +33,6 @@ export const Login = () => {
             service.login(userDetails)
                 .then((res) => {
                     if (res.data.success === true) {
-                        alert("Data Is Added");
                         localStorage.setItem('token', res.data.token)
                         history.push('/dashboard');
                     } else {

@@ -69,10 +69,6 @@ export const Dashboard = () => {
   const [confirmDialog, setConfirmDialog] = React.useState({ isOpen: false, title: '', subTitle: '' })
   
   const handleLogOut = () => {
-    setConfirmDialog({
-      ...confirmDialog,
-      isOpen: false
-    })
     localStorage.removeItem('token');
     history.push('/Login');
 }
@@ -221,14 +217,7 @@ const openInPopUp = userData => {
                 Employee Payroll App
               </Typography>
               <Button data-testid="logoutbutton" color="inherit" 
-              onClick={() =>
-                setConfirmDialog({
-                  isOpen: true,
-                  title: 'Are you sure to log out?',
-                  onConfirm: { handleLogOut }
-                })
-              }
-              > Log Out </Button>
+              onClick ={handleLogOut}> Log Out </Button>
             </Toolbar>
           </AppBar>
           <main className={classes.content}>
