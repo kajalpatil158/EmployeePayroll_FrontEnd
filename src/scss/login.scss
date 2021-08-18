@@ -1,34 +1,37 @@
 
+$bg-color: #c3b9b9;
+$color:#ffffff;
+$btn-color:blue;
 
-.formStyle {
-  height: 100vh;
+@mixin flexprob{
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: #c3b9b9;
+}
+.formStyle {
+  @include flexprob;
+  height: 100vh;
+  background-color:$bg-color;
   
 .header {
   font-weight: bold;
   padding: 5;
-  color: blue;
+  color: $btn-color;
 }
   .paperStyle {
     height: auto;
     width: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include flexprob;
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: #ffffff;
+    background-color: $color;
     margin: 10px 0;
   }
   .btnstyle {
     margin: 4px 0;
-    background-color: blue;
-    color:white;
+    background-color: $btn-color;
+    color:$color;
 
   }
 }

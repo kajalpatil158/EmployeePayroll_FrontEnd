@@ -127,7 +127,7 @@ export const Dashboard = () => {
             .then((res) => {
                 setNotify({
                     isOpen: true,
-                    message: 'Updated Successfully',
+                    message: 'Employee Data Updated Successfully',
                     type: 'success'
                 })
                 getAllemployees()
