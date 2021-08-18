@@ -1,8 +1,5 @@
 @import "mixin";
-$bg-color: #c3b9b9;
-$color:#ffffff;
-$btn-color:blue;
-
+@import "var";
 
 .formStyle {
   @include flexprob;
