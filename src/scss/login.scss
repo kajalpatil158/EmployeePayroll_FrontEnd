@@ -1,14 +1,9 @@
-
+@import "mixin";
 $bg-color: #c3b9b9;
 $color:#ffffff;
 $btn-color:blue;
 
-@mixin flexprob{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
+
 .formStyle {
   @include flexprob;
   height: 100vh;
@@ -32,6 +27,5 @@ $btn-color:blue;
     margin: 4px 0;
     background-color: $btn-color;
     color:$color;
-
   }
 }
