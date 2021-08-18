@@ -1,10 +1,12 @@
 
 @import "mixin";
+@import "var";
+
 .formStyle {
   @include flexprob;
   height: 100vh;
-  background-color: #ffffff;
-  
+  background-color:$bg-color;
+
 .header {
   font-weight: bold;
   padding: 5;
@@ -15,7 +17,7 @@
     width: 300px;
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: #ffffff;
+    background-color: $color;
     margin: 10px 0;
   }
   .btnstyle {
