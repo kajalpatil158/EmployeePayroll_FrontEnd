@@ -160,7 +160,7 @@ const openInPopUp = userData => {
       .then((res) => {
         setNotify({
           isOpen: true,
-          message: 'Deleted Successfully',
+          message: 'Employee Deleted Successfully',
           type: 'error'
         })
         getAllemployees()
