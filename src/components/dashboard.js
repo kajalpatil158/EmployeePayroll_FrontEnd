@@ -196,19 +196,7 @@ const openInPopUp = userData => {
                 </ListItemIcon>
                 <ListItemText primary="Add" />
               </ListItem>
-              <ListItem data-testid="editbutton" button>
-                <ListItemIcon>
-                  <EditIcon style={{ fill: "#2D3B49" }} />
-                </ListItemIcon>
-                <ListItemText primary="Edit" />
-              </ListItem>
-              <ListItem data-testid="deletebutton" button>
-                <ListItemIcon>
-                  <DeleteIcon style={{ fill: "#B22222" }} />
-                </ListItemIcon>
-                <ListItemText primary="Delete" />
-              </ListItem>
-
+              
             </List>
           </Drawer>
           <AppBar data-testid="appbar" position="fixed" color="primary" className={classes.appBar}>
