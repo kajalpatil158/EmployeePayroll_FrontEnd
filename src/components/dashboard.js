@@ -74,7 +74,7 @@ export const Dashboard = () => {
 }
   useEffect(() => {
     getAllemployees()
-  }, [setRecords])
+  }, [ ])
 
   const getAllemployees = () => {
     service.getAllEmployees()
@@ -89,9 +89,7 @@ export const Dashboard = () => {
   const addOrEdit = (employee, resetForm) => {
     console.log(employee);
     if (action === 'add') {
-      console.log("addition");
         service.addEmployee(employee)
-
             .then((res) => {
                 setNotify({
                     isOpen: true,
@@ -118,7 +116,6 @@ export const Dashboard = () => {
             department: employee.department,
             salary: employee.salary,
         };
-        console.log("Data"+employeeData);
         service.updateEmployee(employeeData)
             .then((res) => {
                 setNotify({

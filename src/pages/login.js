@@ -72,16 +72,8 @@ export const Login = () => {
                             <Field as={TextField} data-testid="password" label='Password'  name='password' placeholder='Enter Password'
                                 helperText={<ErrorMessage name='password'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 type='password' fullwidth required />
-                            <FormControlLabel
-                                control={
-                                    <Field as={Checkbox}
-                                        name="checkedB"
-                                        color="primary"
-                                    />
-                                }
-                                label="Remember me"
-                            />
-                            <Button data-testid="button" className="btnstyle" type='submit' fullWidth
+                           
+                            <Button data-testid="button" className="btnStyle" type='submit' fullWidth
                                 value='Rgister' label='Button'
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
