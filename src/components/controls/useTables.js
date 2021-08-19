@@ -88,7 +88,8 @@ export default function useTable(records, headCells) {
         const stablizedThis = array.map((el, index) => [el, index])
         stablizedThis.sort((a,b) => {
             const order = comparator(b[0], array[0]);
-            if(order!==0) return order;
+            if(order!==0){ return order;}
+            
             return b[1] - a[1];
         })
         return stablizedThis.map((el) => el[0]);

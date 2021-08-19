@@ -36,10 +36,11 @@ export default function EmployeeForm(props) {
 
     useEffect( () => {
         if(recordForEdit != null)
+        {
             setValues({
                 ...recordForEdit
             })
-    }, [recordForEdit])
+    }}, [recordForEdit])
 
     const textStyle = { margin: '5px 0', color:"#2D3B49" }
     const btnstyle = { margin: '25px 110px', width: 150, backgroundColor:"#00AEC3" }
