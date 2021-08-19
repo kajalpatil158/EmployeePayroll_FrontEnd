@@ -85,16 +85,8 @@ export const Register = () => {
                                 helperText={<ErrorMessage name='Password'>{msg =>
                                     <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 placeholder='Enter Password' type='password' fullWidth required />
-                            <FormControlLabel
-                                control={
-                                    <Field as={Checkbox}
-                                        name="checkedB"
-                                        color="primary"
-                                    />
-                                }
-                                label="Remember me"
-                            />
-                            <Button data-testid="button" className="btnstyle" type='submit' color='primary' fullWidth
+            
+                            <Button data-testid="button" className="btnStyle" type='submit' color='primary' fullWidth
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
                                 <Typography>
