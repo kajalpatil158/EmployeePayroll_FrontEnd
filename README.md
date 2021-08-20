@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Employee_Payroll_Frontend_Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Application built on ReactJS
 
-## Available Scripts
+## Requirements
 
-In the project directory, you can run:
+For development, you will only need node packages and npm in your environement.
 
-### `npm start`
+### `Node`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `Node installation on Windows`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Just go on official Node.js website and download the installer. Also, be sure to have git available in your PATH, npm might need it (You can find git here).
 
-### `npm test`
+### `Node installation on Ubuntu`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You can install nodejs and npm easily with apt install, just run the following commands.
 
-### `npm run build`
+$ sudo apt install nodejs
+$ sudo apt install npm
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If the installation was successful, you should be able to run the following command.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+$ node --version v14.17.0
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+$ npm --version 6.14.13
 
-### `npm run eject`
+### `Install`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+git clone https://github.com/kajalpatil158/EmployeePayroll_FrontEnd
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+$ cd Employee_Payroll_frontEnd
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+$ npm install
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Configure app
 
-## Learn More
+$ you need to run backend Application follow  https://github.com/kajalpatil158/EmployeePayroll_FrontEnd_webApp.git to run Backend Application
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+$ after installation create '.env' file in Employee_Payroll_frontEnd root path and then add the React_App_BASEURL="http://localhost:7000" to .env file
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+environment variables for your customisation
 
-### Code Splitting
+### Running the app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+$npm start
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Testing the app
+$npm test
