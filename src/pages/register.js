@@ -1,7 +1,6 @@
 import React from 'react';
 import { Avatar, Button, Grid, Paper, TextField, Typography,Link }
  from '@material-ui/core';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import AccountBoxOutlinedIcon from 
 '@material-ui/icons/AccountBoxOutlined';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -84,7 +83,15 @@ export const Register = () => {
                                 helperText={<ErrorMessage name='Password'>{msg =>
                                     <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}
                                 placeholder='Enter Password' type='password' fullWidth required />
-            
+                            {/* <FormControlLabel
+                                control={
+                                    <Field as={Checkbox}
+                                        name="checkedB"
+                                        color="primary"
+                                    />
+                                }
+                                label="Remember me"
+                            />*/}
                             <Button data-testid="button" className="btnStyle" type='submit' color='primary' fullWidth
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
