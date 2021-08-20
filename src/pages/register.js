@@ -33,7 +33,6 @@ export const Register = () => {
               emailId: values.emailId,
               password: values.password,
             };
-            console.log(userDetails);
             service.register(userDetails)
             .then((res) => {
                 if (res.data.success === true) {

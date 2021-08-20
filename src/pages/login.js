@@ -9,6 +9,7 @@ import * as Yup from 'yup';
 import { Link, useHistory } from 'react-router-dom';
 import Service from '../services/user.js';
 const service = new Service();
+import auth from '../components/auth'
 /**
  * @description Login Page Is Uses For Login A User
  * @param Material UI Data is uses
@@ -24,17 +25,17 @@ export const Login = () => {
     }
 
     const onSubmit = (values, props) => {
-        console.log(values);
             const userDetails = {
                 emailId: values.email,
                 password: values.password,          
             };          
-            console.log(userDetails);
             service.login(userDetails)
                 .then((res) => {
                     if (res.data.success === true) {
                         localStorage.setItem('token', res.data.token)
+                        auth.login(() => {
                         history.push('/dashboard');
+                    })
                     } else {
                         alert("Something Wrong");
                     }
@@ -77,15 +78,15 @@ export const Login = () => {
                                 value='Rgister' label='Button'
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
-                               <Typography>
+                             {/*  <Typography>
                                 <Link href="#" >
                                     Forgot Password ?
                                 </Link>
-                            </Typography>
+                             </Typography>*/}
 
                             <Typography> Do you have an account ?
                                 <Link href="/dashboard" >
-                                    Sign Up
+                                    Sign In
                                 </Link>
                             </Typography>
                         </Form>)}

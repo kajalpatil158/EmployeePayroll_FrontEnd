@@ -37,7 +37,6 @@ class Service {
    */ 
 
     updateEmployee = (userData) => {
-      console.log(userData);
       return Axios.put('http://localhost:7000/update/'+userData._id,userData)
   }
 

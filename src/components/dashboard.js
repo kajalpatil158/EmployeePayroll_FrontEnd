@@ -18,6 +18,7 @@ import ConfirmDialog from "./controls/confirmDialog";
 import Notification from "./controls/notifications";
 import Service from '../services/employee';
 const service = new Service();
+import auth from './auth';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,7 +62,9 @@ export const Dashboard = () => {
   
   const handleLogOut = () => {
     localStorage.removeItem('token');
-    history.push('/Login');
+    auth.logout(() => {
+      history.push("/Login");
+})
 }
   useEffect(() => {
     getAllemployees()

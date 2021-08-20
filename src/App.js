@@ -1,8 +1,8 @@
 import {Register} from './pages/register'
 import {Login}  from './pages/login';
-import EmployeeForm from './components/employeeForm';
 import Dashboard from "./components/dashboard";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ProtectedRoute from "./components/protectedroute";
 
 function App() {
   return (
@@ -11,9 +11,8 @@ function App() {
         <Switch>       
           <Route exact path='/' component={Register} />
           <Route path='/Login' component={Login} />
-          <Route path='/dashboard' component={Dashboard} />
-          <Route path='/Emp' component={EmployeeForm} />
-        </Switch>
+          <ProtectedRoute path='/dashboard' component={Dashboard} />
+          </Switch>
       </BrowserRouter>
     </div>
   );
