@@ -19,7 +19,7 @@ class Service {
    */
 
     addEmployee = (userData) => {
-        return Axios.post(`http://localhost:7000/addEmployee`, userData)
+        return Axios.post(`/addEmployee`, userData)
     }
 
     /**
@@ -28,7 +28,7 @@ class Service {
    */ 
 
      getAllEmployees = () => {
-        return Axios.get(`http://localhost:7000/employees`)
+        return Axios.get(`/employees`)
     }
    
     /**
@@ -37,7 +37,7 @@ class Service {
    */ 
 
     updateEmployee = (userData) => {
-      return Axios.put('http://localhost:7000/update/'+userData._id,userData)
+      return Axios.put('/update/'+userData._id,userData)
   }
 
     /**
@@ -46,7 +46,7 @@ class Service {
    */ 
 
     deleteEmployee = (_id) => {
-      return Axios.delete(`http://localhost:7000/delete/`+_id)   
+      return Axios.delete(`/delete/`+_id)   
     }
   }
 
