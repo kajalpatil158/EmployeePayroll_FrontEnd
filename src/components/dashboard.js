@@ -14,7 +14,7 @@ import { Paper, TableBody, TableCell, TableRow } from '@material-ui/core';
 import useTable from './controls/useTables';
 import EmployeeForm from "./employeeForm";
 import PopUp from "./popup";
-import ConfirmDialog from "./controls/confirmDialog";
+import ConfirmDialog from "./controls/ConfirmDialog";
 import Notification from "./controls/notifications";
 import Service from '../services/employee';
 const service = new Service();
