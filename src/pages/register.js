@@ -3,7 +3,6 @@ import { Avatar, Button, Grid, Paper, TextField, Typography,Link }
  from '@material-ui/core';
 import AccountBoxOutlinedIcon from 
 '@material-ui/icons/AccountBoxOutlined';
-import Checkbox from '@material-ui/core/Checkbox';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import '../scss/register.scss';
@@ -95,11 +94,11 @@ export const Register = () => {
                             <Button data-testid="button" className="btnStyle" type='submit' color='primary' fullWidth
                                 variant='contained' disabled={props.isSubmitting}>
                                 {props.isSubmitting ? "Loading" : "Sign Up"}</Button>
-                                <Typography>
+                               {/* <Typography>
                                 <Link href="#" >
                                     Forgot Password ?
                                 </Link>
-                            </Typography>
+                               </Typography>*/}
 
                             <Typography> Do you have an account ?
                                 <Link href="/Login" >

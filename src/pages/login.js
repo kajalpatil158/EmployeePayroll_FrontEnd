@@ -44,6 +44,7 @@ export const Login = () => {
                     alert(error.message);
                     console.log(error);
                 });
+                props.resetForm();
     }
 
     const validationSchema = Yup.object().shape({

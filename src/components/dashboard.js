@@ -81,7 +81,6 @@ export const Dashboard = () => {
   }
 
   const addOrEdit = (employee, resetForm) => {
-    console.log(employee);
     if (action === 'add') {
         service.addEmployee(employee)
             .then((res) => {
