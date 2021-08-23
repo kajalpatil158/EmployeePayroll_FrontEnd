@@ -11,7 +11,7 @@ function App() {
         <Switch>       
           <Route exact path='/' component={Register} />
           <Route path='/Login' component={Login} />
-          <ProtectedRoute path='/dashboard' component={Dashboard} />
+          <Route path='/dashboard' component={Dashboard} />
           </Switch>
       </BrowserRouter>
     </div>
