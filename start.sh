@@ -3,8 +3,5 @@
 cd  /home/ubuntu/EmployeePayroll_Frontend
 working_directory=$(pwd)
 echo "Present working directory = $working_directory"
-npm i
-echo "Installing packages"
-npm run build
-echo "build success!"
-npm start
+pm2 delete 0
+pm2 start npm --name "EmployeeFrontEnd" -- start
